@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect } from "react";
 import { redirect } from "next/navigation";
 import { ClienteCrear } from "./components/clienteCrear";
 import { EquipoCrear } from "./components/equipoCrear";
@@ -12,12 +13,16 @@ import { useUser } from "@clerk/nextjs";
 
 export default function Crear() {
     const { user } = useUser();
-    if (user) {
-        if(user.primaryEmailAddress?.emailAddress !== "cejaspestaaaas343@gmail.com"){
-            return 
+
+    useEffect(() => {
+        // Si no hay usuario autenticado, redirige a "/modific"
+        if (!user) {
+            redirect("/modific");
+        } else if (user.primaryEmailAddress?.emailAddress !== "cejaspestaaaas343@gmail.com") {
+            // Si el correo del usuario no es el correcto, también redirige
+            return; // No hace nada, ya que no se muestra el contenido
         }
-    }
-    if(!user) return redirect("/modific")
+    }, [user]); // Dependencia de 'user' para ejecutar el efecto cuando el usuario cambie
 
     return (
         <div className="w-full min-h-[250vh] bg-[rgb(12,12,12)] text-white flex flex-col justify-center items-center py-10 px-5">

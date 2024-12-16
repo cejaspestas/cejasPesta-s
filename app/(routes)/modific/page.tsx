@@ -20,8 +20,9 @@ export default function Modific() {
             {user ? (
                 <div className="flex flex-col items-center">
                     <h2 className="text-lg mb-2">
-                        Hola, {user.firstName || "Usuario"}
+                        Hola, {user.firstName|| "Usuario"}
                     </h2>
+                    <h2>{user.primaryEmailAddress?.emailAddress }</h2>
                     <SignOutButton>
                         <button className="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600">
                             Cerrar Sesión
