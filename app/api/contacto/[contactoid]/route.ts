@@ -2,17 +2,25 @@ import { db } from "@/lib/db";
 import { NextResponse } from "next/server";
 
 
+export async function GET(req : Request , { params } : { params: { contactoid: string } }) {
+    const { contactoid } = params;
 
-export async function DELETE(request: Request) {
+    if (!contactoid) {
+        return new Response(JSON.stringify({ error: "Falta el ID del contacto" }), { status: 400 });
+    }
+
     try {
+        const contacto = await db.contacto.findUnique({
+            where: { id: Number(contactoid) },
+        });
 
-        const videoId = request.url.split('/')[request.url.split('/').length - 1];
-        
-        await db.contacto.delete({ where: { id: Number(videoId) }});
+        if (!contacto) {
+            return new Response(JSON.stringify({ error: "Contacto no encontrado" }), { status: 404 });
+        }
 
-        return NextResponse.json({ message: 'ELIMINADO' }, { status: 200 });
+        return new Response(JSON.stringify(contacto), { status: 200 });
     } catch (error) {
-        const errorMessage = error instanceof Error ? error.message : 'Error al eliminar el cliente';
-        return NextResponse.json({ error: errorMessage }, { status: 500 });
+        console.error("Error al obtener el contacto:", error);
+        return new Response(JSON.stringify({ error: "Error interno del servidor" }), { status: 500 });
     }
 }
