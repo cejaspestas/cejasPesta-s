@@ -1,9 +1,9 @@
 import { db } from "@/lib/db";
 
 
-export async function GET(req : Request , { params } : { params: { contactoid: string } }) {
+export async function POST(req : Request , { params } : { params: { contactoid: string } }) {
     const { contactoid } = params;
-
+    console.log(req ? "d" : "");
     if (!contactoid) {
         return new Response(JSON.stringify({ error: "Falta el ID del contacto" }), { status: 400 });
     }
