@@ -1,0 +1,25 @@
+import { db } from "@/lib/db";
+import { NextResponse } from "next/server";
+import fs from 'fs/promises';
+
+
+export async function DELETE(request: Request) {
+    try {
+
+        const servioId = request.url.split('/')[request.url.split('/').length - 1];
+        const servicio = await db.servicio.findUnique({ where: { id: Number(servioId) }});
+
+        if (!servicio) {
+            return NextResponse.json({ error: 'No se ha encontrado el cliente' }, { status: 404 });
+        }
+        
+        await fs.unlink(servicio.imagenRuta);
+
+        await db.servicio.delete({ where: { id: Number(servioId) }});
+
+        return NextResponse.json({ message: 'ELIMINADO' }, { status: 200 });
+    } catch (error) {
+        const errorMessage = error instanceof Error ? error.message : 'Error al eliminar el cliente';
+        return NextResponse.json({ error: errorMessage }, { status: 500 });
+    }
+}
