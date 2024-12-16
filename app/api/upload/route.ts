@@ -22,13 +22,8 @@ export async function POST(request: NextRequest) {
 
         // Crea un objeto File usando el buffer del archivo
         const file = new File([fileBuffer], fileName, { type: fileType });
-
-        console.log("Preparando para subir archivo:", file);
-
         // Sube el archivo a UploadThing
         const response = await utapi.uploadFiles([file]);
-
-        console.log("Respuesta de UploadThing:", response);
 
         if (!response?.[0]?.data?.url) {
           throw new Error("Error al subir archivo: No se devolvió una URL");
@@ -40,8 +35,6 @@ export async function POST(request: NextRequest) {
         console.log("Entrada no válida:", name);
       }
     }
-
-    console.log("Archivos subidos exitosamente:", rutas);
     return NextResponse.json(
       { message: "Files uploaded successfully", rutas: rutas },
       { status: 200 }
