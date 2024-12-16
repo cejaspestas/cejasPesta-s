@@ -7,7 +7,7 @@ import { useData } from "@/context/fetchdatos";
 export const BarraProgreso = ({ productSorteo }: { productSorteo: Product[] }) => {
   const [userInfo, setUserInfo] = useState<UserInfo[]>([]); // Corregir nombre de variable
   const [count, setCount] = useState(0);
-  const { dataUser,  productos } = useData() ?? {}
+  const { dataUser} = useData() ?? {}
 
   useEffect(() => {
     if  (dataUser) {
