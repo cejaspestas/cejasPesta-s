@@ -5,8 +5,8 @@ interface Params {
   contactoid: string;
 }
 
-export async function POST(req: Request, { params }: { params: Params }) {
-    const { contactoid } = params;
+export async function POST(req: Request, context: { params: any }) {
+    const { contactoid } = context.params;
     console.log(req ? "d" : "");
 
     // Verificar si el ID está presente y es válido
