@@ -6,11 +6,12 @@ import { usePathname } from "next/navigation";
 
 export function Header() {
     const [scrollPosition, setScrollPosition] = useState<boolean>(false);
-    let rutas = ["/modific/sorteo", "/modific/crear", "/modific/mostrar", "/sorteos"]
+    const rutas = ["/modific/sorteo", "/modific/crear", "/modific/mostrar", "/sorteos"]
     const pathname = usePathname();
 
     useEffect(() => {
         const handleScroll = (e: Event) => {
+            console.log(e ? "d" : "");
             setScrollPosition(window.scrollY > 0);
         };
         window.addEventListener("scroll", handleScroll);

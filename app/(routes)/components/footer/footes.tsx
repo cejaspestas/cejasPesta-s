@@ -7,7 +7,7 @@ import { usePathname } from "next/navigation";
 
 export const Footer = () => {
     const pathname = usePathname();
-    let rutas = ["/modific/sorteo", "/modific/crear", "/modific/mostrar", "/sorteos"]
+    const rutas = ["/modific/sorteo", "/modific/crear", "/modific/mostrar", "/sorteos"]
 
     return (
         <footer className={`bg-[#191919] text-white py-20 px-6 flex items-center justify-center ${rutas.includes(pathname) ? "hidden" : ""}`}>

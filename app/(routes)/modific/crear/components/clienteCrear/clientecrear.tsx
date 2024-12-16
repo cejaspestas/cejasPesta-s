@@ -9,7 +9,7 @@ export const ClienteCrear = () => {
     const [files, setFiles] = useState<File | null>(null);
     const [imagenes, setImagenes] = useState<string[]>([]);
     const [message, setMessage] = useState<string>('');
-
+    console.log(imagenes ? "s" : "");
     const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         if (e.target.name === "nombre" || e.target.name === "tipoServicio") {
             setCliente({ ...cliente, [e.target.name]: e.target.value });

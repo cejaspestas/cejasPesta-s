@@ -73,7 +73,7 @@ export const ImagenesBloque1 = () => {
             setImagenes(rutas)
 
         } catch (error) {
-            setMessage('Error al conectar con el servidor.');
+            setMessage( error ? 'Error al conectar con el servidor.' : "");
         }
     }
 

@@ -6,14 +6,14 @@ import { join, extname } from "path";
 export async function POST(request: NextRequest) {
   try {
     const data = await request.formData();
-    let rutas: string[] = [];
+    const rutas: string[] = [];
 
     if (!data) {
       return NextResponse.json({ error: "No file uploaded" }, { status: 400 });
     }
   
-    for (let [name, value] of data.entries()) {
-      console.log(name ? "d" : "")
+    for (const [name, value] of data.entries()) {
+      console.log(name && value ? "d" : "")
       if (value instanceof File) {
         const bytes = await value.arrayBuffer();
         const buffer = Buffer.from(bytes);
