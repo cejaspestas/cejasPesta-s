@@ -8,7 +8,7 @@ export async function DELETE(request: Request) {
 
         const precioId = request.url.split('/')[request.url.split('/').length - 1];
         
-        await db.precio.delete({ where: { id: Number(precioId) }});
+        await db.precio.delete({ where: { id:precioId }});
 
         return NextResponse.json({ message: 'ELIMINADO' }, { status: 200 });
     } catch (error) {

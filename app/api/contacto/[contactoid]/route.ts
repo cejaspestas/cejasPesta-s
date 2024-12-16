@@ -13,7 +13,7 @@ export async function POST(req: Request, { params }: { params: Promise<Record<st
     try {
         // Intentar eliminar el contacto
         const contacto = await db.contacto.delete({
-            where: { id: Number(contactoid) },
+            where: { id: contactoid },
         });
 
         // Verificar si el contacto fue encontrado y eliminado

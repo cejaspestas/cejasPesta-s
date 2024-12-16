@@ -3,12 +3,12 @@ generator client {
 }
 
 datasource db {
-  provider = "sqlite"
+  provider = "mongodb"
   url      = env("DATABASE_URL")
 }
 
 model Contacto {
-  id        Int      @id @default(autoincrement())
+    id         String   @id @default(auto()) @map("_id") @db.ObjectId
   nombre    String
   email     String
   telefono  String
@@ -17,52 +17,52 @@ model Contacto {
 }
 
 model Imagen {
-  id   Int    @id @default(autoincrement())
+  id         String   @id @default(auto()) @map("_id") @db.ObjectId
   ruta String
 }
 
 model Servicio {
-  id          Int    @id @default(autoincrement())
+   id         String   @id @default(auto()) @map("_id") @db.ObjectId
   imagenRuta  String
   titulo      String
   descripcion String
 }
 
 model Video {
-  id          Int    @id @default(autoincrement())
+  id         String   @id @default(auto()) @map("_id") @db.ObjectId
   videoRuta   String
   titulo      String
   descripcion String
 }
 
 model Cliente {
-  id           Int    @id @default(autoincrement())
+  id         String   @id @default(auto()) @map("_id") @db.ObjectId
   rutaImagen   String
   nombre       String
   tipoServicio String
 }
 
 model Precio {
-  id           Int    @id @default(autoincrement())
+  id         String   @id @default(auto()) @map("_id") @db.ObjectId
   tipoServicio String
   descripcion  String
   precio       Float
 }
 
 model Promocion {
-  id           Int    @id @default(autoincrement())
+  id         String   @id @default(auto()) @map("_id") @db.ObjectId
   tipoServicio String
   descripcion  String
 }
 
 model Equipo {
-  id         Int    @id @default(autoincrement())
+  id         String   @id @default(auto()) @map("_id") @db.ObjectId
   rutaImagen String
   cargo      String
 }
 
 model Product {
-  id                    Int      @id @default(autoincrement())
+  id         String   @id @default(auto()) @map("_id") @db.ObjectId
   title                 String
   ImagenRuta            String
   description           String
@@ -74,7 +74,7 @@ model Product {
 }
 
 model UserInfo {
-  id               Int      @id @default(autoincrement())
+  id         String   @id @default(auto()) @map("_id") @db.ObjectId
   nombreCompleto   String
   email            String   @unique
   celular          String
@@ -84,7 +84,7 @@ model UserInfo {
 }
 
 model Fecha {
-  id        Int      @id @default(autoincrement())
+  id         String   @id @default(auto()) @map("_id") @db.ObjectId
   fInicio   String
   fFinal    String
   createdAt DateTime @default(now())

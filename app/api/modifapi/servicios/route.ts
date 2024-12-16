@@ -10,6 +10,8 @@ export async function POST(request: Request) {
             return NextResponse.json({ error: 'No se han recibido datos' }, { status: 500 });
         }
 
+        console.log(data);
+
         const { imagenRuta , titulo, descripcion} = data;
 
         if (!imagenRuta || !titulo || !descripcion) {

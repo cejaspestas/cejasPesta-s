@@ -1,7 +1,12 @@
 import { db } from "@/lib/db";
 import { NextResponse } from "next/server";
-import fs from 'fs/promises';
-import path from 'path'; // Import the 'path' module to handle file paths properly
+import { UTApi } from "uploadthing/server";
+
+const utapi = new UTApi({
+  token: process.env.UPLOADTHING_TOKEN!, // Asegúrate de que el token de UploadThing esté correctamente configurado
+});
+
+
 
 export async function DELETE(request: Request) {
     try {
@@ -14,7 +19,7 @@ export async function DELETE(request: Request) {
             return NextResponse.json({ error: 'Product ID not found in the URL' }, { status: 400 });
         }
 
-        const productId = Number(productIdMatch[1]);
+        const productId = productIdMatch[1];
 
         // Obtenemos los detalles del producto de la base de datos
         const productImage = await db.product.findUnique({ where: { id: productId } });
@@ -23,13 +28,13 @@ export async function DELETE(request: Request) {
             return NextResponse.json({ error: 'Product not found or image path missing' }, { status: 404 });
         }
 
-        // Construimos la ruta completa del archivo en la carpeta 'public'
-        const filePath = path.join(process.cwd(), 'public', productImage.ImagenRuta);
+        const deleteImage = productImage.ImagenRuta.split('/').pop();
+        const response = await utapi.deleteFiles([deleteImage] as string[]);
 
-        console.log('File to delete:', filePath);
+        if (!response || !response.success) {
+            console.error("Error al eliminar el archivo en UploadThing:");
+        }
 
-        // Intentamos eliminar el archivo
-        await fs.unlink(filePath);
 
         // Eliminamos el producto de la base de datos
         await db.product.delete({ where: { id: productId } });

@@ -2,7 +2,7 @@
 import { MercadoPagoConfig, Preference } from "mercadopago";
 /*/*https://7ntbjpbw-3000.use2.devtunnels.ms/sorteos?collection_id=96117181159&collection_status=approved&payment_id=96117181159&status=approved&external_reference=null&payment_type=debit_card&merchant_order_id=26174147297&preference_id=1896866819-e0a9abdf-6312-4d55-b1fc-9cc29f769e67&site_id=MCO&processing_mode=aggregator&merchant_account_id=null*/  
 interface Props {
-  id: number;
+  id: string;
   fecha: string;  // Cambié esto a string, ya que la fecha debería ser un string ISO
   title: string;
   priceBoleto: string;

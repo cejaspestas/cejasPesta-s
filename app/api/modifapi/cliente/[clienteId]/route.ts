@@ -1,22 +1,31 @@
 import { db } from "@/lib/db";
 import { NextResponse } from "next/server";
-import fs from 'fs/promises';
+import { UTApi } from "uploadthing/server";
 
+
+const utapi = new UTApi({
+    token: process.env.UPLOADTHING_TOKEN!, // Asegúrate de que el token de UploadThing esté correctamente configurado
+});
 
 export async function DELETE(request: Request) {
     try {
 
         const clienteId = request.url.split('/')[request.url.split('/').length - 1];
         
-        const cliente = await db.cliente.findUnique({ where: { id: Number(clienteId) }});
+        const cliente = await db.cliente.findUnique({ where: { id: clienteId }});
 
         if (!cliente) {
             return NextResponse.json({ error: 'No se ha encontrado el cliente' }, { status: 404 });
         }
         
-        await fs.unlink(cliente.rutaImagen);
+        const deleteImage = cliente.rutaImagen.split('/').pop();
+        const response = await utapi.deleteFiles([deleteImage] as string[]);
 
-        await db.cliente.delete({ where: { id: Number(clienteId) }});
+        if (!response || !response.success) {
+            console.error("Error al eliminar el archivo en UploadThing:");
+        }
+
+        await db.cliente.delete({ where: { id: clienteId }});
 
         return NextResponse.json({ message: 'POST' }, { status: 200 });
     } catch (error) {

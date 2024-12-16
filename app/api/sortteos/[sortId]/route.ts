@@ -7,7 +7,7 @@ export async function DELETE(request: Request) {
         const sortId = request.url.split('/')
         const idTotal = sortId[sortId.length - 1];
 
-        await db.userInfo.delete({ where: { id: Number(idTotal) } });
+        await db.userInfo.delete({ where: { id:idTotal } });
 
         return NextResponse.json({ message: 'ELIMINADO' }, { status: 200 });
     } catch (error) {
