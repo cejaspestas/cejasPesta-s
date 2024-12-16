@@ -47,7 +47,7 @@ export const PromocionCrear = () => {
             }
 
         } catch (error) {
-            setMessage('Error al conectar con el servidor.');
+            setMessage( error ?'Error al conectar con el servidor.' : "");
         }
     }
 

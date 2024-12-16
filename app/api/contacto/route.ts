@@ -25,8 +25,7 @@ export async function POST(request: Request) {
         }
 
         return NextResponse.json({ contacto }, { status: 200 });
-    } catch (error: any) {
-        console.log(error.message);
-        return NextResponse.json({ error: error.message }, { status: 500 });
+    } catch (error) {
+        return NextResponse.json({ error: error ? "Error al crear el contacto" : ""}, { status: 500 });
     }
 }

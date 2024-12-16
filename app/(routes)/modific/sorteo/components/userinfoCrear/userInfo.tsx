@@ -30,7 +30,7 @@ export const UserInfo = () => {
 
             setMessage("Sorteo eliminado correctamente");
         } catch (error) {
-            setMessage("Error al eliminar el sorteo");
+            setMessage( error ? "Error al eliminar el sorteo" : "");
         }
     };
 

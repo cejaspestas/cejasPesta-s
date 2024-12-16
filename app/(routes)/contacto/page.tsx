@@ -35,7 +35,6 @@ export default function Contacto() {
             
             if (!response.ok) {
                 throw new Error("Error al enviar el formulario")
-                setError(true)
             }
             
             const data = await response.json()
@@ -49,9 +48,9 @@ export default function Contacto() {
                 mensaje: ""
             })
             
-        } catch (error: any) {
+        } catch (error) {
             setError(true)
-            setMessage("Error al enviar el formulario " + error.message)
+            setMessage("Error al enviar el formulario ")
         }
     }
 

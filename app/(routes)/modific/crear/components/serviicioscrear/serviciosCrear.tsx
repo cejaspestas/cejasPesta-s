@@ -39,7 +39,7 @@ export const ServiciosCrear = () => {
                         setMessage(data.error || 'Error al crear el servicio.');
                     }
                 } catch (error) {
-                    setMessage('Error al conectar con el servidor.');
+                    setMessage( error ? 'Error al conectar con el servidor.' : "");
                 }
             };
 
@@ -83,7 +83,7 @@ export const ServiciosCrear = () => {
                 setMessage(data.error || 'Error al subir la imagen.');
             }
         } catch (error) {
-            setMessage('Error al conectar con el servidor.');
+            setMessage( error ? 'Error al conectar con el servidor.' : 'Error al conectar con el servidor.');
         }
     };
 

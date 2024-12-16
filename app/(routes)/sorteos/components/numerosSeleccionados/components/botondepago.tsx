@@ -29,7 +29,7 @@ export const Botondepago = ({ productSorteo, numerosEscogidos }: { productSorteo
         };
 
         try {
-            const paymentUrl = await mercadoPago(data as any);
+            const paymentUrl = await mercadoPago(data as typeof data);
             window.location.href = paymentUrl as string;
         } catch (error) {
             console.error("Error al procesar el pago:", error);

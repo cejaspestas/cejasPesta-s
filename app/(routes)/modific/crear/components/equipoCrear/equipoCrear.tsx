@@ -7,6 +7,7 @@ export const EquipoCrear = () => {
     });
     const [files, setFiles] = useState<File | null>(null);
     const [imagenes, setImagenes] = useState<string[]>([]);
+    console.log(imagenes ? "s": "");
     const [message, setMessage] = useState<string>('');
 
     const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -76,7 +77,7 @@ export const EquipoCrear = () => {
             }
 
         } catch (error) {
-            setMessage('Error al conectar con el servidor.');
+            setMessage(error ? "'Error al conectar con el servidor.'" : "");
         }
     }
 

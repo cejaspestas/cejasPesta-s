@@ -72,7 +72,7 @@ export const FechaCrear = () => {
       setMessage("fecha eliminado correctamente");
       // Actualizar la lista de fechas después de eliminar
     } catch (error) {
-      setMessage("Error al eliminar la fecha");
+      setMessage(error ? "Error al eliminar la fecha": "");
     }
   };
 

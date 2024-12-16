@@ -13,7 +13,7 @@ export async function POST(request: Request) {
             return NextResponse.json({ error: 'Todos los campos son obligatorios' }, { status: 400 });
         }
 
-        const fecha = await db.fecha.create({
+        await db.fecha.create({
             data: {
                 fInicio: data?.fInicio,
                 fFinal: data?.fFinal,

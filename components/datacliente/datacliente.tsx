@@ -10,13 +10,6 @@ import { useState, useEffect } from "react";;
 import { Cliente } from "@prisma/client";
 import { useData } from "@/context/fetchdatos";
 
-interface DataClienteProps {
-  id: number;
-  nombre: string;
-  href: string;
-  alt: string;
-}
-
 export const DataCliente = () => {
   const [dataClientes , setDataClientes] = useState<Cliente[]>([]);
   const [isLoading, setIsLoading] = useState(true); // Estado para manejar la carga

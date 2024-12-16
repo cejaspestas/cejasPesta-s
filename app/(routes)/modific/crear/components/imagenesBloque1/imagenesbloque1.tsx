@@ -6,7 +6,7 @@ export const ImagenesBloque1 = () => {
     const [imagenes, setImagenes] = useState([])
     const [files , setFiles] = useState<File>()
     const [message, setMessage] = useState<string>('');
-
+    console.log(message ? "d" : "");
     useEffect(() => {
         if (imagenes.length > 0) {
             const enviarImagen = async () => {
@@ -30,7 +30,7 @@ export const ImagenesBloque1 = () => {
                     }
                     console.log(data2);
                 } catch (error) {
-                    setMessage('Error al conectar con el servidor para procesar la imagen.');
+                    setMessage(error ? 'Error al conectar con el servidor para procesar la imagen.': "");
                 }
             };
     
@@ -69,7 +69,7 @@ export const ImagenesBloque1 = () => {
             } else {
                 setMessage(data.error || 'Error al subir el archivo.');
             }
-            const { message, rutas } = data
+            const { rutas } = data
             setImagenes(rutas)
 
         } catch (error) {

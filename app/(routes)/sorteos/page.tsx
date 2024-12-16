@@ -5,7 +5,7 @@ import { Section1 } from "./components/section1images/section1";
 
 export default function Sorteos() {
     const [paymentStatus, setPaymentStatus] = useState<string | null>(null);
-    const [datalocalstorage, setDataLocalStorage] = useState<Record<string, any> | null>(null);
+    const [datalocalstorage, setDataLocalStorage] = useState<Record<string, typeof localStorage> | null>(null);
     
     useEffect(() => {
         // Simula la verificación del estado del pago desde la URL o algún parámetro
@@ -41,7 +41,7 @@ export default function Sorteos() {
                         console.error("Error en la respuesta:", data);
                     }
                 } catch (error) {
-                    console.error("Error fetching data:", error instanceof Error ? error.message : "Unknown error");
+                    console.error("Error fetching data:", error instanceof Error ? "error" : "Unknown error");
                 }
             };
     

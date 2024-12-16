@@ -46,7 +46,7 @@ export default function MostrarEditar() {
             router.refresh();
 
         } catch (error) {
-            console.error("Error al eliminar el video:");
+            console.error(error ? "Error al eliminar el precio:" : "");
         }
     }
 
@@ -63,7 +63,7 @@ export default function MostrarEditar() {
             router.refresh();
 
         } catch (error) {
-            console.error("Error al eliminar el servicio:");
+            console.error(error ? "Error al eliminar el precio:" : "");
         }
         
     }
@@ -81,7 +81,7 @@ export default function MostrarEditar() {
 
             router.refresh();
         } catch (error) {
-            console.error("Error al eliminar el precio:");
+            console.error(error ? "Error al eliminar el precio:" : "");
         }
     }
 
@@ -99,7 +99,7 @@ export default function MostrarEditar() {
             router.refresh();
 
         } catch (error) {
-            console.error("Error al eliminar la promocion:");
+            console.error(error ? "Error al eliminar el precio:" : "");
         }
     }
 
@@ -116,7 +116,7 @@ export default function MostrarEditar() {
 
             router.refresh();
         } catch (error) {
-            console.error("Error al eliminar el equipo:");
+            console.error(error ? "Error al eliminar el precio:" : "");
         }
     }
 
@@ -133,7 +133,7 @@ export default function MostrarEditar() {
             }
             router.refresh();
         } catch (error) {
-            console.error("Error al eliminar la imagen:");        
+            console.error(error ? "Error al eliminar el precio:" : "");     
         }
     }
 
@@ -152,7 +152,7 @@ export default function MostrarEditar() {
 
             router.refresh();
         } catch (error) {
-            console.error("Error al eliminar el contacto:");
+            console.error(error ? "Error al eliminar el precio:" : "");
         }
     }
 
@@ -170,7 +170,7 @@ export default function MostrarEditar() {
             router.refresh();
 
         } catch (error) {
-            console.error("Error al eliminar el cliente:");
+            console.error(error ? "Error al eliminar el precio:" : "");
         }
     }
 

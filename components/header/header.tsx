@@ -6,7 +6,7 @@ import { usePathname } from "next/navigation";
 
 export function Header() {
     const [scrollPosition, setScrollPosition] = useState<boolean>(false);
-    const [rutas, setRutas] = useState<string[]>(["/modific/sorteo", "/modific/crear", "/modific/mostrar", "/sorteos"]);
+    let rutas = ["/modific/sorteo", "/modific/crear", "/modific/mostrar", "/sorteos"]
     const pathname = usePathname();
 
     useEffect(() => {

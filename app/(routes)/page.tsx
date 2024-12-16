@@ -6,8 +6,7 @@ import Slider from "@/components/slider/slider";
 import { ServiciosHome } from "./components/servicios/servicios";
 import { VideosHome } from "./components/videos/videos";
 import { ClienteHome } from "./components/clientes/cliente";
-import { useState, useEffect } from "react";
-import { obtenerDatos } from "@/lib/datosdb";
+
 
 export default function Home() {
   return (

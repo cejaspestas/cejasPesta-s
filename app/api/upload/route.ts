@@ -13,7 +13,7 @@ export async function POST(request: NextRequest) {
     }
   
     for (let [name, value] of data.entries()) {
-      // Verificamos si el valor es un archivo
+      console.log(name ? "d" : "")
       if (value instanceof File) {
         const bytes = await value.arrayBuffer();
         const buffer = Buffer.from(bytes);

@@ -2,6 +2,7 @@ import  { NextResponse } from 'next/server';
 import { db } from '@/lib/db';
 
 export async function GET(request: Request) {
+    console.log(request ? 'Datos recibidos' : "");
     try {
         const contactos = await db.contacto.findMany();
         const imagenes = await db.imagen.findMany();
@@ -20,6 +21,6 @@ export async function GET(request: Request) {
         return  NextResponse.json({message: 'Datos recibidos correctamente', info: datosDb }, { status: 200 });
 
     } catch (error) {
-        return NextResponse.json({ error: 'Error al recibir los datos' }, { status: 500 });
+        return NextResponse.json({ error: error ? 'Error al recibir los datos' : "" }, { status: 500 });
     }
 }

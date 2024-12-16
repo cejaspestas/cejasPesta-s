@@ -24,6 +24,7 @@ export const Product = () => {
 
   // Estados
   const [message, setMessage] = useState<string>("");
+  console.log(message ? "d" : "");
   const [products, setProducts] = useState<Product[]>([]);
   const [newProduct, setNewProduct] = useState<NewProduct>({
     title: "",
