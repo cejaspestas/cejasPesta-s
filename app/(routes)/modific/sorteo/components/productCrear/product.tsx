@@ -141,7 +141,7 @@ export const Product = () => {
   };
 
   return (
-    <section className="p-4 flex flex-col lg:flex-col justify-center items-center h-[100vh] w-full bg-[rgb(12,12,12)] rounded-lg">
+    <section className="p-4 flex flex-col lg:flex-col justify-center items-center min-h-[100vh] w-full bg-[rgb(12,12,12)] rounded-lg">
       {/* Formulario de creación */}
       <div className="mb-4 w-[90%] h-[50%] mt-5 ">
         <h1 className="text-xl font-bold font-serif text-white">Crear Producto</h1>

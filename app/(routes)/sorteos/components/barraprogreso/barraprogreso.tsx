@@ -7,7 +7,7 @@ import { useData } from "@/context/fetchdatos";
 export const BarraProgreso = ({ productSorteo }: { productSorteo: Product[] }) => {
   const [userInfo, setUserInfo] = useState<UserInfo[]>([]); // Corregir nombre de variable
   const [count, setCount] = useState(0);
-  const { dataUser } = useData() ?? {}
+  const { dataUser,  productos } = useData() ?? {}
 
   useEffect(() => {
     if  (dataUser) {
@@ -29,7 +29,7 @@ export const BarraProgreso = ({ productSorteo }: { productSorteo: Product[] }) =
 
   if (!productSorteo.length) return null; // Verificar si hay productos
 
-  const totalBoletos = 10000; // Límite (evitar división por 0)
+  const totalBoletos = Number(productSorteo[0]?.cantidadBoletonumeros); // Límite (evitar división por 0)
   const boletosVendidos = count; // Progreso actual
 
   const porcentajeProgreso = Math.min(
