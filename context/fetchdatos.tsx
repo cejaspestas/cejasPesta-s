@@ -34,7 +34,7 @@ export const DataProvider = ({ children }: { children: ReactNode }) => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await fetch('/api/datosdatos', {
+                const response = await fetch('http://localhost:3000/api/datosdatos', {
                     method : 'GET',
                     headers: {
                         'Content-Type': 'application/json',
