@@ -10,7 +10,7 @@ export async function DELETE(request: Request) {
         if (!productIdMatch) {
             return NextResponse.json({ error: 'Product ID not found in the URL' }, { status: 400 });
         }
-        const productId = Number(productIdMatch);
+        const productId = productIdMatch;
         await db.fecha.delete({ where: { id: productId } });
 
         return NextResponse.json({ message: 'Product and image deleted successfully' }, { status: 200 });
