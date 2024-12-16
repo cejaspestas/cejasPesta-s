@@ -5,61 +5,90 @@ import {
     DialogHeader,
     DialogTitle,
     DialogTrigger,
-} from "@/components/ui/dialog"
-import {mercadoPago} from "@/api"
+} from "@/components/ui/dialog";
+import { mercadoPago } from "@/api";
 import { Section3 } from "../../formuser/formUser";
-  
-export const Botondepago = ({productSorteo, numerosEscogidos}: {productSorteo: Product[], numerosEscogidos: string[]}) => {
+import { useEffect, useState } from "react";
+
+export const Botondepago = ({ productSorteo, numerosEscogidos }: { productSorteo: Product[]; numerosEscogidos: string[] }) => {
+    const [form, setForm] = useState(false);
+    const [open, setOpen] = useState(false);
+
     const handleSubmit = async () => {
+        if (!productSorteo.length) {
+            console.error("No hay productos seleccionados para el pago.");
+            return;
+        }
+
         const data = {
-          id: productSorteo[0]?.id,
-          title: productSorteo[0]?.title,
-          fecha : Date.now().toLocaleString(),
-          priceBoleto: productSorteo[0]?.priceBoleto,
-          numerosEscogidos: numerosEscogidos.length
+            id: productSorteo[0]?.id,
+            title: productSorteo[0]?.title,
+            fecha: new Date().toLocaleString(),
+            priceBoleto: productSorteo[0]?.priceBoleto,
+            numerosEscogidos: numerosEscogidos.length,
         };
-        
+
         try {
-          const paymentUrl = await mercadoPago(data as any);
-          window.location.href = paymentUrl as  string; 
+            const paymentUrl = await mercadoPago(data as any);
+            window.location.href = paymentUrl as string;
         } catch (error) {
-          console.error('Error al procesar el pago:', error);
+            console.error("Error al procesar el pago:", error);
+            alert("Hubo un problema al procesar el pago. Por favor, inténtalo de nuevo.");
         }
     };
-      
+
+    useEffect(() => {
+        if (!open) {
+            localStorage.setItem("dataForm", "");
+        }
+    }, [open]);
+
+    if (!productSorteo.length) {
+        return <p className="text-red-500 font-bold">No hay productos disponibles para el pago.</p>;
+    }
+
     return (
-        <section className="w-full flex flex-col items-center justify-center gap-y-20">
-            <div className="flex justify-center items-center overflow-auto gap-x-5">
-                {
-                    numerosEscogidos.map ((num, index) => (
-                        <p className="text-black font-bold bg-orange-500 border border-white p-5" key={index}>{num}</p>
-                    ))
-                }
+        <section className="w-full flex flex-col items-center justify-center gap-y-8">
+            <div className="flex flex-wrap justify-center items-center overflow-auto gap-2">
+                {numerosEscogidos.map((num, index) => (
+                    <p className="text-black font-bold bg-orange-500 border border-white p-3 rounded" key={index}>
+                        {num}
+                    </p>
+                ))}
             </div>
-            <Dialog>
-                <DialogTrigger className="text-white font-semibold w-[50%] font-mono py-4 px-6 bg-orange-600  hover:bg-orange-700 transition">
+            <Dialog open={open} onOpenChange={setOpen}>
+                <DialogTrigger className="text-white font-semibold w-[50%] text-center font-mono py-3 px-5 bg-orange-600 hover:bg-orange-700 transition rounded">
                     Pagar
                 </DialogTrigger>
-                <DialogContent className="overflow-auto max-h-[80vh] bg-black">
+                <DialogContent className="overflow-auto max-h-[80vh] bg-black p-5 rounded">
                     <DialogHeader>
-                        <DialogTitle className="text-white text-xl text-center font-serif font-bold capitalize">
-                        Por favor una vez pagado el numero llene el formulario y presione enviar datos 
+                        <DialogTitle className="text-white text-lg text-center font-serif font-bold capitalize">
+                            Por favor, una vez pagado el número, llene el formulario y presione "Enviar datos".
                         </DialogTitle>
                     </DialogHeader>
-                    <label className="font-bold text-orange-700 capitalize text-xl text-center">
-                    {new Intl.NumberFormat('es-CO', {
-                        style: 'currency',
-                        currency: 'COP',
-                    }).format(Number(productSorteo[0]?.priceBoleto) * numerosEscogidos.length)} COP
+                    <label className="block font-bold text-orange-700 text-lg text-center mt-4">
+                        {new Intl.NumberFormat("es-CO", {
+                            style: "currency",
+                            currency: "COP",
+                        }).format(Number(productSorteo[0]?.priceBoleto) * numerosEscogidos.length)}{" "}
+                        COP
                     </label>
-                    <div className="bg-orange-600 w-full flex items-center justify-center p-x-2 h ">
-                        <button className="text-white font-semibold w-[50%] font-serif py-4 px-6 bg-orange-600  hover:bg-orange-700 transition" type="submit" onClick={handleSubmit}>Finalizar el pago</button>
+                    <div className="w-full mt-6">
+                        <Section3 numerosEscogidosInput={numerosEscogidos.join(",")} setForm={setForm} />
                     </div>
-                    <div className="w-full">
-                        <Section3 numerosEscogidosInput={numerosEscogidos.join(",")} />
+                    <div className="bg-orange-600 w-full flex items-center justify-center px-4 py-3 rounded mt-4">
+                        <button
+                            disabled={!form || localStorage.getItem("dataForm") === "" ? true : false}
+                            className="text-white font-semibold w-[50%] font-serif py-3 px-5 bg-orange-600 hover:bg-orange-700 transition disabled:opacity-50 disabled:cursor-not-allowed"
+                            type="submit"
+                            onClick={handleSubmit}
+                            aria-disabled={!form || !open}
+                        >
+                            Finalizar el pago
+                        </button>
                     </div>
                 </DialogContent>
             </Dialog>
         </section>
-    )
-}
+    );
+};

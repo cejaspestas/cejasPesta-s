@@ -1,15 +1,8 @@
-import {
-    Dialog,
-    DialogContent,
-    DialogDescription,
-    DialogHeader,
-    DialogTitle,
-    DialogTrigger,
-} from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { useEffect, useState } from "react";
 import { UserInfo as UserInfoType } from "@prisma/client";
 
-export const Section3 = ({ numerosEscogidosInput }: { numerosEscogidosInput: string }) => {
+export const Section3 = ({ numerosEscogidosInput , setForm}: { numerosEscogidosInput: string, setForm: React.Dispatch<React.SetStateAction<boolean>> }) => {
     const [dataForm, setDataForm] = useState<Omit<UserInfoType, "id" | "createdAt">>({
         nombreCompleto: "",
         email: "",
@@ -18,7 +11,8 @@ export const Section3 = ({ numerosEscogidosInput }: { numerosEscogidosInput: str
         numerosEscogidos: "",
     });
     const [message, setMessage] = useState<string | null>(null);
-    
+    const [open, setOpen] = useState(false);
+
     useEffect(() => {
         if (!numerosEscogidosInput) return; // No hay necesidad de modificar si no se pasa el input
         setDataForm((prev) => ({
@@ -26,46 +20,40 @@ export const Section3 = ({ numerosEscogidosInput }: { numerosEscogidosInput: str
             numerosEscogidos: numerosEscogidosInput,
         }));
     }, [numerosEscogidosInput]);
-    
+
+
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { name, value } = e.target;
         setDataForm((prev) => ({
             ...prev,
             [name]: value,
         }));
+        
     };
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-        try {
-            if (!dataForm.nombreCompleto || !dataForm.email || !dataForm.celular || !dataForm.pais || !dataForm.numerosEscogidos) {
-                setMessage("Todos los campos son obligatorios");
-                return;
-            }
-
-            const response = await fetch("/api/sortteos", {
-                method: "POST",
-                headers: {
-                    "Content-Type" : "application/json",
-                },
-                body: JSON.stringify(dataForm),
-            });
-
-            if (!response.ok) {
-                throw new Error("Error al enviar el formulario");
-            }
-
-            const data = await response.json();
-            setMessage(data.message);
-        } catch (error) {
-            setMessage('Error al conectar con el servidor.');
+        if (!dataForm.nombreCompleto || !dataForm.email || !dataForm.celular || !dataForm.pais || !dataForm.numerosEscogidos) {
+            setMessage("Todos los campos son obligatorios");
+            return;
         }
+        setMessage(null);
+        localStorage.setItem("dataForm", JSON.stringify(dataForm));
+        setDataForm({
+            nombreCompleto: "",
+            email: "",
+            celular: "",
+            pais: "",
+            numerosEscogidos: "",
+        })
+        setOpen(false)
+        setForm(true as boolean)
     };
 
     return (
-        <section className="w-full h-auto flex flex-col items-center justify-center gap-y-10 ">
+        <section className="w-full h-auto flex flex-col items-center justify-center gap-y-10">
             <div className="w-full">
-                <Dialog>
+                <Dialog open={open} onOpenChange={setOpen}>
                     <DialogTrigger className="px-6 py-3 bg-orange-600 text-white w-full hover:bg-orange-500 transition duration-200 text-lg">
                         Abrir Formulario y enviar la información
                     </DialogTrigger>
@@ -142,3 +130,4 @@ export const Section3 = ({ numerosEscogidosInput }: { numerosEscogidosInput: str
         </section>
     );
 };
+

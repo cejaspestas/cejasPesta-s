@@ -61,7 +61,7 @@ export const DataProvider = ({ children }: { children: ReactNode }) => {
                     console.error("Failed to fetch data");
                 }
             } catch (error) {
-                console.error("Error fetching data:", error);
+                console.error(error instanceof Error ? "Error fetching data:": "");
             }
         };
 

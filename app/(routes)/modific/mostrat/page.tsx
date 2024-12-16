@@ -1,10 +1,10 @@
 "use client";
 import { Cliente, Contacto, Equipo, Imagen, Precio, Promocion, Servicio, Video } from "@prisma/client";
 import { useEffect, useState } from "react";
-import { useRouter } from "next/navigation";
+import { redirect, useRouter } from "next/navigation";
 import { useData } from "@/context/fetchdatos";
 
-
+import { useUser } from "@clerk/nextjs"
 export default function MostrarEditar() { 
     const [videos, setVideos] = useState<Video[]>([]);
     const [servicios, setServicios] = useState<Servicio[]>([]);
@@ -173,6 +173,15 @@ export default function MostrarEditar() {
             console.error("Error al eliminar el cliente:");
         }
     }
+
+    const { user } = useUser();
+    if (user) {
+        if(user.primaryEmailAddress?.emailAddress !== "cejaspestaaaas343@gmail.com"){
+            return redirect("/modific")
+        }
+    }
+    if(!user) return redirect("/modific")
+
 
     return (
         <div className="w-full min-h-[260vh] bg-[rgb(12,12,12)] text-white flex flex-col justify-center items-center py-10 px-5">

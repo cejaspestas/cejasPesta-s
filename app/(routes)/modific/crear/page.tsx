@@ -1,3 +1,6 @@
+"use client";
+
+import { redirect } from "next/navigation";
 import { ClienteCrear } from "./components/clienteCrear";
 import { EquipoCrear } from "./components/equipoCrear";
 import { ImagenesBloque1 } from "./components/imagenesBloque1";
@@ -5,8 +8,17 @@ import { PrecioCrear } from "./components/precioCrear";
 import { PromocionCrear } from "./components/promocionCrear";
 import { ServiciosCrear } from "./components/serviicioscrear";
 import { VideosCrear } from "./components/videoCrear";
-/*user_2qGvlmyi46g8Ht6uSmLQvWj1CTC*/
+import { useUser } from "@clerk/nextjs";
+
 export default function Crear() {
+    const { user } = useUser();
+    if (user) {
+        if(user.primaryEmailAddress?.emailAddress !== "cejaspestaaaas343@gmail.com"){
+            return redirect("/modific")
+        }
+    }
+    if(!user) return redirect("/modific")
+
     return (
         <div className="w-full min-h-[250vh] bg-[rgb(12,12,12)] text-white flex flex-col justify-center items-center py-10 px-5">
             <h1 className="text-4xl font-bold mb-10">Crear</h1>

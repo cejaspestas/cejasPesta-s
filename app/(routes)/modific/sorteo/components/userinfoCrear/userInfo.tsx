@@ -2,6 +2,7 @@
 import { UserInfo as UserInfoType } from "@prisma/client"; // Renombramos el tipo Prisma
 import { useEffect, useState } from "react";
 import { useData } from "@/context/fetchdatos";
+import { SignOutButton } from '@clerk/nextjs'
 
 export const UserInfo = () => {
     const [message, setMessage] = useState<string | null>(null);
@@ -12,12 +13,15 @@ export const UserInfo = () => {
             setUserInfo(dataUser);
         }
 
-    }, []);
+    }, [dataUser]);
 
     const handleDelete = async (num: number) => {
         try {
             const response = await fetch(`/api/sortteos/${num}`, {
                 method: "DELETE",
+                headers:{
+                    "Content-Type": "application/json"
+                }
             });
 
             if (!response.ok) {
@@ -32,6 +36,7 @@ export const UserInfo = () => {
 
     return (
         <section className="flex flex-col lg:flex-row justify-center items-center min-h-screen w-full bg-[rgb(15,15,15)] p-4 rounded-lg">
+            <SignOutButton />
             <div className="w-full bg-[rgb(30,30,30)] p-6 rounded-lg shadow-lg">
                 <h2 className="text-2xl font-bold text-white mb-4">UserInfo - Editar/Eliminar</h2>
                 {message && (
