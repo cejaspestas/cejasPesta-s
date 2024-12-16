@@ -1,8 +1,8 @@
 import { db } from "@/lib/db";
 
 
-export async function POST(req: Request, { params }: { params: Record<string, string> }) {
-    const { contactoid } = params;
+export async function POST(req: Request, { params }: { params: Promise<Record<string, string>> }) {
+    const { contactoid } = await params;
     console.log(req ? "d" : "");
 
     // Verificar si el ID está presente y es válido
