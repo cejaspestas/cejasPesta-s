@@ -1,20 +1,23 @@
 import { db } from "@/lib/db";
 
-export async function POST(req: Request) {
+// Definir el tipo correcto para los parámetros de la ruta
+interface Params {
+  contactoid: string;
+}
+
+export async function POST(req: Request, { params }: { params: Params }) {
+    const { contactoid } = params;
+    console.log(req ? "d" : "");
+
+    // Verificar si el ID está presente y es válido
+    if (!contactoid || isNaN(Number(contactoid))) {
+        return new Response(JSON.stringify({ error: "ID de contacto inválido" }), { status: 400 });
+    }
+
     try {
-        // Extraer el ID desde la URL
-        const url = new URL(req.url);
-        const contactoid = url.pathname.split("/").pop(); // Obtiene la última parte de la ruta
-
-        // Validar que el ID es válido
-        const id = Number(contactoid);
-        if (!id || isNaN(id)) {
-            return new Response(JSON.stringify({ error: "ID de contacto inválido" }), { status: 400 });
-        }
-
         // Intentar eliminar el contacto
         const contacto = await db.contacto.delete({
-            where: { id },
+            where: { id: Number(contactoid) },
         });
 
         // Verificar si el contacto fue encontrado y eliminado
