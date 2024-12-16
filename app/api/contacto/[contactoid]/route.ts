@@ -1,13 +1,9 @@
 import { db } from "@/lib/db";
 
-interface Params {
-    contactoid: string;
-}
-
 export async function POST(req: Request, ) {
     console.log(req ? "d" : "");
     
-    const contactoid = req.url.split("/").pop();
+    const contactoid  = req.url.split("/").pop();
 
     const id = Number(contactoid);
     if (!id || isNaN(id)) {
