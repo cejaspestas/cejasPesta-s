@@ -14,7 +14,7 @@ export default function Crear() {
     const { user } = useUser();
     if (user) {
         if(user.primaryEmailAddress?.emailAddress !== "cejaspestaaaas343@gmail.com"){
-            return redirect("/modific")
+            return 
         }
     }
     if(!user) return redirect("/modific")
