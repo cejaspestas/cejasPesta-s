@@ -1,7 +1,7 @@
 import { db } from "@/lib/db";
 
 
-export async function POST(req : Request , { params } : { params: { contactoid: string } }) {
+export async function POST(req : Request , { params } : { params: { contactoid: string | unknown } }) {
     const { contactoid } = params;
     console.log(req ? "d" : "");
     if (!contactoid) {
