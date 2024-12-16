@@ -1,7 +1,5 @@
 "use client";
 
-import { useEffect } from "react";
-import { redirect } from "next/navigation";
 import { ClienteCrear } from "./components/clienteCrear";
 import { EquipoCrear } from "./components/equipoCrear";
 import { ImagenesBloque1 } from "./components/imagenesBloque1";

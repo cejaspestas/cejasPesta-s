@@ -1,7 +1,7 @@
 "use client";
 import { Cliente, Contacto, Equipo, Imagen, Precio, Promocion, Servicio, Video } from "@prisma/client";
 import { useEffect, useState } from "react";
-import { redirect, useRouter } from "next/navigation";
+import {useRouter } from "next/navigation";
 import { useData } from "@/context/fetchdatos";
 
 import { useUser } from "@clerk/nextjs"
