@@ -1,16 +1,17 @@
 import { db } from "@/lib/db";
 
-export async function POST(req: Request, ) {
-    console.log(req ? "d" : "");
-    
-    const contactoid  = req.url.split("/").pop();
-
-    const id = Number(contactoid);
-    if (!id || isNaN(id)) {
-        return new Response(JSON.stringify({ error: "ID de contacto inválido" }), { status: 400 });
-    }
-
+export async function POST(req: Request) {
     try {
+        // Extraer el ID desde la URL
+        const url = new URL(req.url);
+        const contactoid = url.pathname.split("/").pop(); // Obtiene la última parte de la ruta
+
+        // Validar que el ID es válido
+        const id = Number(contactoid);
+        if (!id || isNaN(id)) {
+            return new Response(JSON.stringify({ error: "ID de contacto inválido" }), { status: 400 });
+        }
+
         // Intentar eliminar el contacto
         const contacto = await db.contacto.delete({
             where: { id },
