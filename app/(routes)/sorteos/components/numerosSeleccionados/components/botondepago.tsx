@@ -63,7 +63,7 @@ export const Botondepago = ({ productSorteo, numerosEscogidos }: { productSorteo
                 <DialogContent className="overflow-auto max-h-[80vh] bg-black p-5 rounded">
                     <DialogHeader>
                         <DialogTitle className="text-white text-lg text-center font-serif font-bold capitalize">
-                            Por favor, una vez pagado el número, llene el formulario y presione "Enviar datos".
+                            {`Por favor, una vez pagado el número, llene el formulario y presione "Enviar datos".`}
                         </DialogTitle>
                     </DialogHeader>
                     <label className="block font-bold text-orange-700 text-lg text-center mt-4">
