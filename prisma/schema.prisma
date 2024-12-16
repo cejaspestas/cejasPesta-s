@@ -1,4 +1,3 @@
-
 generator client {
   provider = "prisma-client-js"
 }
@@ -17,69 +16,61 @@ model Contacto {
   createdAt DateTime @default(now())
 }
 
-
-
 model Imagen {
-  id           Int         @id @default(autoincrement())
-  ruta         String
- 
+  id   Int    @id @default(autoincrement())
+  ruta String
 }
 
 model Servicio {
-  id            Int         @id @default(autoincrement())
-  imagenRuta    String
-  titulo        String
-  descripcion   String
-  
+  id          Int    @id @default(autoincrement())
+  imagenRuta  String
+  titulo      String
+  descripcion String
 }
 
 model Video {
-  id            Int         @id @default(autoincrement())
-  videoRuta     String
-  titulo        String
-  descripcion   String
- 
+  id          Int    @id @default(autoincrement())
+  videoRuta   String
+  titulo      String
+  descripcion String
 }
 
 model Cliente {
-  id            Int         @id @default(autoincrement())
-  rutaImagen    String
-  nombre        String
-  tipoServicio  String
-  
+  id           Int    @id @default(autoincrement())
+  rutaImagen   String
+  nombre       String
+  tipoServicio String
 }
 
 model Precio {
-  id            Int         @id @default(autoincrement())
-  tipoServicio  String
-  descripcion   String
-  precio        Float
+  id           Int    @id @default(autoincrement())
+  tipoServicio String
+  descripcion  String
+  precio       Float
 }
 
 model Promocion {
-  id            Int         @id @default(autoincrement())
-  tipoServicio  String
-  descripcion   String
- 
+  id           Int    @id @default(autoincrement())
+  tipoServicio String
+  descripcion  String
 }
 
 model Equipo {
-  id            Int         @id @default(autoincrement())
-  rutaImagen    String
-  cargo         String
-  
+  id         Int    @id @default(autoincrement())
+  rutaImagen String
+  cargo      String
 }
 
 model Product {
-  id              Int      @id @default(autoincrement())
-  title           String
-  ImagenRuta      String
-  description     String
-  caracteristicas String
-  priceProduct String
-  cantidadBoletonumeros Int // Número de boletos disponibles
+  id                    Int      @id @default(autoincrement())
+  title                 String
+  ImagenRuta            String
+  description           String
+  caracteristicas       String
+  priceProduct          String
+  cantidadBoletonumeros Int
   priceBoleto           String
-  createdAt       DateTime @default(now()) // Fecha de creación
+  createdAt             DateTime @default(now())
 }
 
 model UserInfo {
@@ -88,13 +79,13 @@ model UserInfo {
   email            String   @unique
   celular          String
   pais             String
-  numerosEscogidos String   // Los números que el usuario ha escogido
-  createdAt        DateTime @default(now()) // Fecha de creación
+  numerosEscogidos String
+  createdAt        DateTime @default(now())
 }
 
 model Fecha {
   id        Int      @id @default(autoincrement())
-  fInicio   String   // Fecha de inicio
-  fFinal    String   // Fecha final
-  createdAt DateTime @default(now()) // Fecha de creación
+  fInicio   String
+  fFinal    String
+  createdAt DateTime @default(now())
 }
