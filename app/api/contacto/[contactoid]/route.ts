@@ -4,10 +4,11 @@ interface Params {
     contactoid: string;
 }
 
-export async function POST(req: Request, context: { params: Params }) {
-    const { contactoid } = context.params;
+export async function POST(req: Request, ) {
     console.log(req ? "d" : "");
-    // Validar que contactoid sea un número válido
+    
+    const contactoid = req.url.split("/").pop();
+
     const id = Number(contactoid);
     if (!id || isNaN(id)) {
         return new Response(JSON.stringify({ error: "ID de contacto inválido" }), { status: 400 });
