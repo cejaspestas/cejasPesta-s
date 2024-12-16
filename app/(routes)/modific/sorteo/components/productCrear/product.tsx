@@ -141,7 +141,7 @@ export const Product = () => {
   };
 
   return (
-    <section className="p-4 flex flex-col lg:flex-col justify-center items-center min-h-[100vh] w-full bg-[rgb(12,12,12)] rounded-lg">
+    <section className="p-4 flex flex-col lg:flex-col justify-center items-center min-h-[100vh] w-full bg-[rgb(12,12,12)] rounded-lg overflow-auto">
       {/* Formulario de creación */}
       <div className="mb-4 w-[90%] h-[50%] mt-5 ">
         <h1 className="text-xl font-bold font-serif text-white">Crear Producto</h1>
@@ -210,7 +210,7 @@ export const Product = () => {
       </div>
 
       {/* Tabla de productos */}
-      <div className="mt-8 w-[90%] h-[50%] ">
+      <div className="mt-8 w-[90%] h-[50%] overflow-auto ">
         <h1 className="text-xl font-bold mb-4 font-serif text-white">Mostrar Productos/Eliminar</h1>
         <table className="table-auto w-full border-collapse border border-gray-300">
           <thead> text-white 

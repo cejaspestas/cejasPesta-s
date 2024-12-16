@@ -8,6 +8,8 @@ const nextConfig: NextConfig = {
         hostname: 'picsum.photos',
       },
     ],
+    domains: ['utfs.io', 'cejas-pesta-s.vercel.app'], // Agrega tu dominio y el de las imágenes
+    
   },
 };
 
