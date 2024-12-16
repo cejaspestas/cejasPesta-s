@@ -5,7 +5,7 @@ import { useData } from "@/context/fetchdatos";
 
 // Tipo del producto basado en el modelo
 interface Product {
-  id: number;
+  id: string;
   title: string;
   ImagenRuta: string;
   description: string;
@@ -124,7 +124,7 @@ export const Product = () => {
   };
 
   // Eliminar producto
-  const handleDeleteProduct = async (id: number) => {
+  const handleDeleteProduct = async (id: string) => {
     try {
       const response = await fetch(`/api/product/${id}`, { method: "DELETE" });
 

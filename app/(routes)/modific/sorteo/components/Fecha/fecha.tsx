@@ -59,7 +59,7 @@ export const FechaCrear = () => {
     }
   };
 
-  const handleDelete = async (id: number) => {
+  const handleDelete = async (id: string) => {
     try {
       const response = await fetch(`/api/fecha/${id}`, {
         method: "DELETE",

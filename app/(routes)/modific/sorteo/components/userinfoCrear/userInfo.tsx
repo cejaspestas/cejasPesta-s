@@ -15,7 +15,7 @@ export const UserInfo = () => {
 
     }, [dataUser]);
 
-    const handleDelete = async (num: number) => {
+    const handleDelete = async (num: string) => {
         try {
             const response = await fetch(`/api/sortteos/${num}`, {
                 method: "DELETE",

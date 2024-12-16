@@ -34,7 +34,7 @@ export default function MostrarEditar() {
       
 
 
-    const EliminarVideo = async (id: number) => {
+    const EliminarVideo = async (id: string) => {
         try {
             const response = await fetch(`/api/modifapi/video/${id}`, {
                 method: "DELETE"
@@ -50,7 +50,7 @@ export default function MostrarEditar() {
         }
     }
 
-    const EliminarServicio = async (id: number) => {
+    const EliminarServicio = async (id: string) => {
         try {
             
             const response = await fetch(`/api/modifapi/servicios/${id}`, {
@@ -68,7 +68,7 @@ export default function MostrarEditar() {
         
     }
 
-    const EliminarPrecio = async (id: number) => {
+    const EliminarPrecio = async (id: string) => {
         try {
             
             const response = await fetch(`/api/modifapi/precio/${id}`, {
@@ -85,7 +85,7 @@ export default function MostrarEditar() {
         }
     }
 
-    const EliminarPromocion = async (id: number) => {
+    const EliminarPromocion = async (id: string) => {
         try {
             
             const response = await fetch(`/api/modifapi/promocion/${id}`, {
@@ -103,7 +103,7 @@ export default function MostrarEditar() {
         }
     }
 
-    const EliminarEquipo = async (id: number) => {
+    const EliminarEquipo = async (id: string) => {
         try {
             
             const response = await fetch(`/api/modifapi/equipo/${id}`, {
@@ -120,7 +120,7 @@ export default function MostrarEditar() {
         }
     }
 
-    const EliminarImagen = async (id: number) => {
+    const EliminarImagen = async (id:string) => {
 
         try {
              
@@ -137,7 +137,7 @@ export default function MostrarEditar() {
         }
     }
 
-    const EliminarContacto = async (id: number) => {
+    const EliminarContacto = async (id: string) => {
         try {
             
             const response = await fetch(`/api/contacto/${id}`, {
@@ -156,7 +156,7 @@ export default function MostrarEditar() {
         }
     }
 
-    const EliminarCliente = async (id: number) => {
+    const EliminarCliente = async (id: string) => {
         try {
             const response = await fetch(`/api/modifapi/cliente/${id}`, {
                 
