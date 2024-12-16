@@ -14,18 +14,11 @@ import { useUser } from "@clerk/nextjs";
 export default function Crear() {
     const { user } = useUser();
 
-    useEffect(() => {
-        console.log("User data: ", user); // Verificar el estado de `user`
+    if (user && user.primaryEmailAddress?.emailAddress !== "cejaspestaaaas343@gmail.com") {
+        return <p className="text-white text-2xl font-bold" >No tienes Permiso</p>
+    }
 
-        // Si no hay usuario autenticado, redirige a "/modific"
-        if (!user) {
-            redirect("/modific");
-        } else if (user.primaryEmailAddress?.emailAddress !== "cejaspestaaaas343@gmail.com") {
-            redirect("/modific");
-        }
-    }, [user]); // Dependencia de 'user' para ejecutar el efecto cuando el usuario cambie
-
-    if (!user) return null; // Evitar que el contenido se muestre si no hay usuario
+    if (!user) return null; 
 
     return (
         <div className="w-full min-h-[250vh] bg-[rgb(12,12,12)] text-white flex flex-col justify-center items-center py-10 px-5">
