@@ -1,12 +1,8 @@
 import { db } from "@/lib/db";
 
-// Definir el tipo correcto para los parámetros de la ruta
-interface Params {
-  contactoid: string | number | undefined | null | string[] | number[] | undefined[] | null[]; 
-}
 
-export async function POST(req: Request, context: { params: any }) {
-    const { contactoid } = context.params;
+export async function POST(req: Request, { params }: { params: Record<string, string> }) {
+    const { contactoid } = params;
     console.log(req ? "d" : "");
 
     // Verificar si el ID está presente y es válido
