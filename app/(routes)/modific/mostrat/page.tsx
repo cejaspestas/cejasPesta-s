@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import {useRouter } from "next/navigation";
 import { useData } from "@/context/fetchdatos";
 
-import { useUser } from "@clerk/nextjs"
 export default function MostrarEditar() { 
     const [videos, setVideos] = useState<Video[]>([]);
     const [servicios, setServicios] = useState<Servicio[]>([]);
@@ -174,13 +173,6 @@ export default function MostrarEditar() {
         }
     }
 
-    const { user } = useUser();
-
-    if (user && user.primaryEmailAddress?.emailAddress !== "cejaspestaaaas343@gmail.com") {
-        return <p className="text-white text-2xl font-bold" >No tienes Permiso</p>
-    }
-
-    if (!user) return null; 
 
     return (
         <div className="w-full min-h-[260vh] bg-[rgb(12,12,12)] text-white flex flex-col justify-center items-center py-10 px-5">

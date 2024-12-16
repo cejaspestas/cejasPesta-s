@@ -7,16 +7,8 @@ import { PrecioCrear } from "./components/precioCrear";
 import { PromocionCrear } from "./components/promocionCrear";
 import { ServiciosCrear } from "./components/serviicioscrear";
 import { VideosCrear } from "./components/videoCrear";
-import { useUser } from "@clerk/nextjs";
 
 export default function Crear() {
-    const { user } = useUser();
-
-    if (user && user.primaryEmailAddress?.emailAddress !== "cejaspestaaaas343@gmail.com") {
-        return <p className="text-white text-2xl font-bold" >No tienes Permiso</p>
-    }
-
-    if (!user) return null; 
 
     return (
         <div className="w-full min-h-[250vh] bg-[rgb(12,12,12)] text-white flex flex-col justify-center items-center py-10 px-5">
