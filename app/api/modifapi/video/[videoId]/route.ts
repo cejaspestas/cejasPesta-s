@@ -8,7 +8,7 @@ export async function DELETE(request: Request) {
 
         const videoId = request.url.split('/')[request.url.split('/').length - 1];
         
-        await db.video.delete({ where: { id: Number(videoId) }});
+        await db.video.delete({ where: { id: videoId }});
 
         return NextResponse.json({ message: 'ELIMINADO' }, { status: 200 });
     } catch (error) {
