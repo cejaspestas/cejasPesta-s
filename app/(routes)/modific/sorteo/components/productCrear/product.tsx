@@ -7,7 +7,7 @@ import { useData } from "@/context/fetchdatos";
 interface Product {
   id: string;
   title: string;
-  ImagenRuta: string;
+  ImagenRuta: string[];
   description: string;
   caracteristicas: string;
   priceProduct: string;
@@ -19,7 +19,7 @@ interface Product {
 export const Product = () => {
   // Definimos el tipo del producto a crear
   type NewProduct = Omit<Product, "id" | "createdAt" | "ImagenRuta"> & {
-    ImagenRuta: File | null;
+    ImagenRuta: FileList | null;
   };
 
   // Estados
@@ -55,8 +55,8 @@ export const Product = () => {
   };
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files?.[0];
-    setNewProduct({ ...newProduct, ImagenRuta: file || null });
+    const file = e.target.files as FileList
+    setNewProduct({ ...newProduct, ImagenRuta: [...file] as unknown as FileList || null });
   };
 
   // Agregar nuevo producto
@@ -78,7 +78,10 @@ export const Product = () => {
 
       // Subir imagen
       const formData = new FormData();
-      formData.append("file", ImagenRuta);
+
+      for (let i = 0; i < ImagenRuta.length; i++) {
+        formData.append("files", ImagenRuta[i]);
+      }
 
       const imageResponse = await fetch("/api/upload", {
         method: "POST",
@@ -92,7 +95,7 @@ export const Product = () => {
       const { rutas } = await imageResponse.json();
 
       // Crear producto con ruta de imagen
-      const newProductWithImage = { ...newProduct, ImagenRuta: rutas[0] };
+      const newProductWithImage = { ...newProduct, ImagenRuta: rutas };
 
       const productResponse = await fetch("/api/product", {
         method: "POST",
@@ -158,6 +161,7 @@ export const Product = () => {
           <input
             type="file"
             name="ImagenRuta"
+            multiple
             onChange={handleFileChange}
             className="p-2 border border-gray-300 rounded"
           />

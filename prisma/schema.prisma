@@ -64,7 +64,7 @@ model Equipo {
 model Product {
   id         String   @id @default(auto()) @map("_id") @db.ObjectId
   title                 String
-  ImagenRuta            String
+  ImagenRuta            String[]
   description           String
   caracteristicas       String
   priceProduct          String

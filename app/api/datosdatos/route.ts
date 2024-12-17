@@ -1,23 +1,11 @@
 import { NextResponse } from 'next/server';
 import { db } from '@/lib/db';
 
-// Lista de dominios permitidos
-const domains = ["https://cejaspestaniascolombia.vercel.app", "http://localhost:3000"];
+// Lista de dominios permitidos (sin `/*`)
 
 export async function GET(request: Request) {
     try {
-        // Obtener el origen (dominio) de la solicitud
-        const origin = new URL(request.url).origin;
-        console.log("Origin:", origin);
-
-        // Verificar si el origen está en la lista de dominios permitidos
-        if (!origin || !domains.includes(origin)) {
-            return NextResponse.json(
-                { error: "No autorizado. Tu dominio no está permitido." },
-                { status: 403 }
-            );
-        }
-
+        // Obtener solo el origen (dominio base) de la solicitud
         // Consultas a la base de datos
         const contactos = await db.contacto.findMany();
         const imagenes = await db.imagen.findMany();
@@ -54,7 +42,6 @@ export async function GET(request: Request) {
         // Manejo de errores
         const errorMessage = error instanceof Error ? error.message : 'Error desconocido';
         return NextResponse.json(
-            
             { error: 'Error al recibir los datos', details: errorMessage },
             { status: 500 }
         );
