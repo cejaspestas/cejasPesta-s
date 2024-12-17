@@ -3,6 +3,7 @@ import { NavbarDesktop } from "./components/navbarDesktop";
 import { NavMobile } from "./components/navbarMobile";
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
+import Image from "next/image";
 
 export function Header() {
     const [scrollPosition, setScrollPosition] = useState<boolean>(false);
@@ -29,7 +30,9 @@ export function Header() {
             }`}
         >
             <div>
-                <p className="text-xl font-bold">Logo</p>
+                <p className="text-xl font-bold">
+                    <Image src="/logo1.png" alt="logo" width={100} height={100} className=""/>
+                </p>
             </div>
             {/* Mostrar solo en escritorio */}
             <div className="hidden md:flex">

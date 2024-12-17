@@ -61,7 +61,7 @@ export const Footer = () => {
                     <ul className="space-y-3 text-gray-400 text-sm leading-6">
                         <li>Teléfono: +57 314 8327958</li>
                         <li>Email: cejasypestanasadomicilio@gmail.com</li>
-                        <li>Dirección: Calle Ficticia, Cúcuta</li>
+                        <li>La Riviera, Norte de Santander, Colombia · Cúcuta, Colombia</li>
                     </ul>
                 </div>
             </div>

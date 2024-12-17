@@ -23,7 +23,7 @@ export const ClienteHome = () => {
                             </text>
                         </svg>
                         <h1 className="relative font-bold text-3xl text-center  sm:text-4xl lg:text-5xl z-30 font-serif">
-                            Nuestros Clientes
+                            Nuestros Clientes/Resultados
                         </h1>
                         <p className="relative mt-4 text-sm sm:text-base lg:text-lg font-mono">
                             Nos enorgullece contar con una increíble variedad de clientes que confían en nuestros servicios de cejas y pestañas. Cada uno de ellos busca realzar su belleza de forma única, y nos sentimos honrados de poder ofrecerles el mejor cuidado y atención para conseguir resultados impecables. Estos son algunos de nuestros maravillosos clientes, quienes han experimentado la transformación que solo nosotros podemos ofrecer.
@@ -32,7 +32,7 @@ export const ClienteHome = () => {
                 </div>
 
                 {/* Contenedor de clientes */}
-                <div className="relative z-10 p-5 w-full overflow-x-scroll">
+                <div className="relative z-10 p-5 w-full overflow-auto">
                     <DataCliente />
                 </div>
             </div>
