@@ -55,8 +55,11 @@ export const Product = () => {
   };
 
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const file = e.target.files as FileList
-    setNewProduct({ ...newProduct, ImagenRuta: [...file] as unknown as FileList || null });
+    const fileList = e.target.files;
+    setNewProduct({ 
+      ...newProduct, 
+      ImagenRuta: fileList as FileList | null 
+    });
   };
 
   // Agregar nuevo producto
