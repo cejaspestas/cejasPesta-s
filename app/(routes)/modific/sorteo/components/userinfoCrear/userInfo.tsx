@@ -35,8 +35,8 @@ export const UserInfo = () => {
     };
 
     return (
-        <section className="flex flex-col lg:flex-row justify-center items-center min-h-screen w-full bg-[rgb(15,15,15)] p-4 rounded-lg">
-            <div className="w-full bg-[rgb(30,30,30)] p-6 rounded-lg shadow-lg">
+        <section className="flex flex-col lg:flex-row justify-center items-center min-h-screen w-full overflow-auto bg-[rgb(15,15,15)] p-4 rounded-lg">
+            <div className="w-full bg-[rgb(30,30,30)] p-6 rounded-lg shadow-lg overflow-auto">
                 <h2 className="text-2xl font-bold text-white mb-4">UserInfo - Editar/Eliminar</h2>
                 {message && (
                     <div className={`text-center p-2 mb-4 text-white ${message.includes('Error') ? 'bg-red-600' : 'bg-green-600'}`}>
