@@ -5,18 +5,19 @@ import { db } from '@/lib/db';
 const domains = ["https://cejaspestaniascolombia.vercel.app"];
 
 export async function GET(request: Request) {
-    // Obtener el origen (dominio) de la solicitud
-    const origin = request.headers.get("origin");
-
-    // Verificar si el origen está en la lista de dominios permitidos
-    if (!origin || !domains.includes(origin)) {
-        return NextResponse.json(
-            { error: "No autorizado. Tu dominio no está permitido." },
-            { status: 403 }
-        );
-    }
-
     try {
+        // Obtener el origen (dominio) de la solicitud
+        const origin = new URL(request.url).origin;
+        console.log("Origin:", origin);
+
+        // Verificar si el origen está en la lista de dominios permitidos
+        if (!origin || !domains.includes(origin)) {
+            return NextResponse.json(
+                { error: "No autorizado. Tu dominio no está permitido." },
+                { status: 403 }
+            );
+        }
+
         // Consultas a la base de datos
         const contactos = await db.contacto.findMany();
         const imagenes = await db.imagen.findMany();
@@ -51,8 +52,10 @@ export async function GET(request: Request) {
         );
     } catch (error) {
         // Manejo de errores
+        const errorMessage = error instanceof Error ? error.message : 'Error desconocido';
         return NextResponse.json(
-            { error: 'Error al recibir los datos', details: error },
+            
+            { error: 'Error al recibir los datos', details: errorMessage },
             { status: 500 }
         );
     }
