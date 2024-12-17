@@ -46,43 +46,43 @@ export const Section2 = () => {
   };
 
   return (
-    <section className="w-[83%] h-[300vh] bg-[rgb(12,12,12)] flex flex-col items-center justify-center gap-y-10 py-10">
-      <h2 className="text-white text-xl lg:text-3xl text-center font-bold font-serif pt-5">
-        Selección de Números
-      </h2>
-      {message && <p className="text-red-500">{message}</p>}
-      <div className="bg-[rgb(30,30,30)] h-[80%] flex flex-col items-center justify-center rounded-lg w-[95%]">
-        <div className="w-full h-full grid grid-cols-[repeat(auto-fill,minmax(120px,1fr))] gap-4 overflow-auto p-4">
-          {numeros.map((num) => {
-            const isSelected = numerosEscogidos.includes(num);
-            const isReserved = numerosReservados.includes(num);
+      <section className="w-[90%] lg:w-[83%] h-auto bg-[rgb(18,18,18)] flex flex-col items-center justify-center gap-10 py-10 px-4 rounded-lg shadow-xl">
+        <h2 className="text-white text-2xl lg:text-4xl text-center font-bold font-serif">
+          Selección de Números
+        </h2>
+        {message && <p className="text-red-500 text-center text-lg">{message}</p>}
+        
+        <div className="w-full h-[75%] flex flex-col items-center justify-center rounded-lg shadow-lg border border-gray-600 overflow-auto">
+          <div className="w-full h-full grid grid-cols-[repeat(auto-fill,minmax(140px,1fr))] gap-6 overflow-auto p-4">
+            {numeros.map((num) => {
+              const isSelected = numerosEscogidos.includes(num);
+              const isReserved = numerosReservados.includes(num);
 
-            return (
-              <div
-                key={num}
-                onClick={() => handleNumberClick(num)}
-                className={`w-full h-[120px] ${
-                  isReserved
-                    ? "bg-red-500 cursor-not-allowed" // Números reservados
-                    : isSelected
-                    ? "bg-orange-500"
-                    : "bg-[rgb(50,50,50)]"
-                } text-white text-xl lg:text-2xl font-bold flex items-center justify-center rounded-lg shadow-md hover:scale-105 transition-transform duration-200 ${
-                  !isReserved ? "hover:bg-orange-600 cursor-pointer" : ""
-                }`}
-              >
-                {num}
-              </div>
-            );
-          })}
+              return (
+                <div
+                  key={num}
+                  onClick={() => handleNumberClick(num)}
+                  className={`w-full h-[130px] flex items-center justify-center text-white text-2xl font-bold rounded-lg shadow-md transition-transform duration-300 ${
+                    isReserved
+                      ? "bg-red-600 cursor-not-allowed"
+                      : isSelected
+                      ? "bg-orange-500"
+                      : "bg-gray-600 hover:bg-orange-500 cursor-pointer"
+                  } hover:scale-105`}>
+                  {num}
+                </div>
+              );
+            })}
+          </div>
         </div>
-      </div>
-      <div className="w-[90%]">
-        <Botondepago
-          numerosEscogidos={numerosEscogidos}
-          productSorteo={productSorteo}
-        />
-      </div>
-    </section>
+
+        <div className="w-full mt-6 flex justify-center">
+          <Botondepago
+            numerosEscogidos={numerosEscogidos}
+            productSorteo={productSorteo}
+          />
+        </div>
+      </section>
+
   );
 };

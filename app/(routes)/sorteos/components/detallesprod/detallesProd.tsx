@@ -11,7 +11,7 @@ export const DetallesProd = ({ productSorteo }: { productSorteo: Product[] }) =>
     const product = productSorteo[0];
 
     return (
-        <div className="w-full h-[30%] p-4 flex items-center justify-center">
+        <div className="w-full h-[30%] p-4 flex items-center justify-center bg-gray-900 rounded-lg">
             <Dialog>
                 <DialogTrigger className="text-white font-semibold font-mono py-4 px-6 bg-orange-600  hover:bg-orange-700 transition">
                     Abrir Para Ver Más Detalles Del Producto

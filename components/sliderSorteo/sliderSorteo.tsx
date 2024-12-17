@@ -8,8 +8,6 @@ import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 import Image from 'next/image';
 import { Product } from '@prisma/client';
-import { BarraProgreso } from '@/app/(routes)/sorteos/components/barraprogreso/barraprogreso';
-
 
 export function SliderSorteo( {array , productSorteo } : {array: string[] , productSorteo: Product[]} ) {
     return (
@@ -32,13 +30,9 @@ export function SliderSorteo( {array , productSorteo } : {array: string[] , prod
               src={image}
               alt="Imagen"
               fill
-              className="object-cover"
+              className="object-cover h-full    w-full"
               sizes="(max-width: 768px) 100vw, 50vw" // Opcional para manejo responsivo
             />
-            
-            <div className="shadow-xl shadow-white absolute rounded-t-lg bottom-0 w-full h-[30%] bg-[rgb(30,30,30)] bg-opacity-85 flex flex-col items-center justify-center gap-y-3">
-                <BarraProgreso productSorteo={productSorteo}/>
-            </div>
           </SwiperSlide>
         ))}
       </Swiper>

@@ -49,7 +49,7 @@ export default function Sorteos() {
     }, [paymentStatus, datalocalstorage]);
     
     return (
-        <div className="flex flex-col min-h-[250vh] items-center justify-start gap-y-10">
+        <div className="flex flex-col min-h-[250vh] items-center justify-start xl:gap-y-1 lg:gap-y-[35vh]  gap-y-20">
             <Section1 />
             <Section2 />
         </div>
