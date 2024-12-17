@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server';
 import { db } from '@/lib/db';
 
 // Lista de dominios permitidos
-const domains = ["https://cejaspestaniascolombia.vercel.app"];
+const domains = ["https://cejaspestaniascolombia.vercel.app", "http://localhost:3000"];
 
 export async function GET(request: Request) {
     try {
