@@ -76,7 +76,7 @@ model Product {
 model UserInfo {
   id         String   @id @default(auto()) @map("_id") @db.ObjectId
   nombreCompleto   String
-  email            String   @unique
+  email            String   
   celular          String
   pais             String
   numerosEscogidos String
