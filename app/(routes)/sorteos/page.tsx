@@ -34,7 +34,7 @@ export default function Sorteos() {
                     });
     
                     const data = await response.json();
-    
+                    console.log("Respuesta:", data);
                     if (response.ok) {
                         console.log("Éxito:", data);
                     } else {

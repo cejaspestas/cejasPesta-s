@@ -8,7 +8,7 @@ import {
 } from "@/components/ui/dialog";
 import { mercadoPago } from "@/api";
 import { Section3 } from "../../formuser/formUser";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 
 export const Botondepago = ({ productSorteo, numerosEscogidos }: { productSorteo: Product[]; numerosEscogidos: string[] }) => {
     const [form, setForm] = useState(false);
@@ -36,12 +36,6 @@ export const Botondepago = ({ productSorteo, numerosEscogidos }: { productSorteo
             alert("Hubo un problema al procesar el pago. Por favor, inténtalo de nuevo.");
         }
     };
-
-    useEffect(() => {
-        if (!open) {
-            localStorage.setItem("dataForm", "");
-        }
-    }, [open]);
 
     if (!productSorteo.length) {
         return <p className="text-red-500 font-bold">No hay productos disponibles para el pago.</p>;
