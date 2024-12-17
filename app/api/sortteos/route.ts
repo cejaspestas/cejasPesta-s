@@ -10,15 +10,15 @@ export async function POST(request: Request) {
             return NextResponse.json({ error: 'No se han recibido datos' }, { status: 500 });
         }
 
-        const { nombrecompleto, email, celular, pais, numerosEscogidos } = data;
+        const { nombreCompleto, email, celular, pais, numerosEscogidos } = data;
 
-        if (!nombrecompleto || !email || !celular || !pais || !numerosEscogidos) {
+        if (!nombreCompleto || !email || !celular || !pais || !numerosEscogidos) {
             return NextResponse.json({ error: 'Todos los campos son obligatorios' }, { status: 400 });
         }
 
         await db.userInfo.create({
             data: {
-                nombreCompleto: nombrecompleto,
+                nombreCompleto: nombreCompleto,
                 email: email,
                 celular: celular,
                 pais: pais,

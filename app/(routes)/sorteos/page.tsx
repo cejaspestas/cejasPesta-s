@@ -25,7 +25,7 @@ export default function Sorteos() {
         if (paymentStatus === "approved" && datalocalstorage) {
             const fetchData = async () => {
                 try {
-                    const response = await fetch(`/api/sorteos`, {
+                    const response = await fetch(`/api/sortteos`, {
                         method: "POST",
                         headers: {
                             "Content-Type": "application/json",

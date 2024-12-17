@@ -29,9 +29,9 @@ export async function mercadoPago(object: Props) {
           data
         ],
         back_urls: {
-          success: "https://7ntbjpbw-3000.use2.devtunnels.ms/",
-          failure: "https://7ntbjpbw-3000.use2.devtunnels.ms/",
-          pending: "https://tu-sitio.com/pending",
+          success: "https://cejaspestaniascolombia.vercel.app/sorteos",
+          failure: "https://cejaspestaniascolombia.vercel.app/",
+          pending: "https://cejaspestaniascolombia.vercel.app/",
         },
         auto_return: "approved",
       },
