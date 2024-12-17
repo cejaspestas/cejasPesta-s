@@ -49,7 +49,7 @@ export const BarraProgreso = ({ productSorteo }: { productSorteo: Product[] }) =
       <h1 className="text-white text-xl text-center font-bold capitalize font-serif">
         {`${boletosVendidos} / ${totalBoletos} Numeros Vendidos`}
       </h1>
-      <h2 className="text-white text-xl text-center font-bold capitalize">Valor del Boleto:   
+      <h2 className="text-orange-400 text-xl text-center font-bold capitalize">Valor del Boleto:   
 
       
         {new Intl.NumberFormat('es-CO', {

@@ -32,28 +32,30 @@ export const FechaCrear = () => {
       if (dataFecha && dataFecha.length > 1) {
         setMessage( "Ya hay una fecha creada");
         return
+      }else {
+        if (!datosInput.fInicio || !datosInput.fFinal) {
+          setMessage("Todos los campos son obligatorios");
+          return;
+        }
+        const response = await fetch("/api/fecha", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            fInicio: datosInput.fInicio,
+            fFinal: datosInput.fFinal,
+          }),
+        });
+  
+        if (!response.ok) {
+          throw new Error("Error al enviar el formulario");
+        }
+  
+        const data = await response.json();
+        setMessage(data.message);
       }
-      if (!datosInput.fInicio || !datosInput.fFinal) {
-        setMessage("Todos los campos son obligatorios");
-        return;
-      }
-      const response = await fetch("/api/fecha", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          fInicio: datosInput.fInicio,
-          fFinal: datosInput.fFinal,
-        }),
-      });
-
-      if (!response.ok) {
-        throw new Error("Error al enviar el formulario");
-      }
-
-      const data = await response.json();
-      setMessage(data.message);
+      
     } catch (error) {
       setMessage(error instanceof Error ? error.message : "Error desconocido");
     }

@@ -64,7 +64,7 @@ export const Section1 = () => {
                             </div>
                         )}
 
-                        <div className="shadow-xl shadow-white absolute rounded-t-lg bottom-0 w-full h-[30%] bg-[rgb(30,30,30)] bg-opacity-70 flex flex-col items-center justify-center gap-y-3">
+                        <div className="shadow-xl shadow-white absolute rounded-t-lg bottom-0 w-full h-[30%] bg-[rgb(30,30,30)] bg-opacity-85 flex flex-col items-center justify-center gap-y-3">
                             <BarraProgreso productSorteo={productSorteo} />
                         </div>
                     </div>
