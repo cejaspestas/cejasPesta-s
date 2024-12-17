@@ -32,6 +32,7 @@ export default function Sorteos() {
                         },
                         body: JSON.stringify(datalocalstorage),
                     });
+                    console.log(response);
     
                     const data = await response.json();
                     if (response.ok) {
