@@ -48,7 +48,7 @@ export const Section1 = () => {
                 <div className="w-full lg:w-[50%] h-[300px] sm:h-[400px] lg:h-[85%] flex items-center justify-center p-3">
                     <div className="relative w-full h-full bg-gray-800 rounded-lg shadow-lg">
                         {productSorteo[0]?.ImagenRuta ? (
-                            <SliderSorteo productSorteo={productSorteo} array={productSorteo[0].ImagenRuta} />
+                            <SliderSorteo  array={productSorteo[0].ImagenRuta} />
                         ) : (
                             <div className="w-full h-full bg-gray-500 flex items-center justify-center rounded-lg">
                                 <span className="text-white">Imagen no disponible</span>

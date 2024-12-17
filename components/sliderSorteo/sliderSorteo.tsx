@@ -7,9 +7,9 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 import Image from 'next/image';
-import { Product } from '@prisma/client';
 
-export function SliderSorteo( {array , productSorteo } : {array: string[] , productSorteo: Product[]} ) {
+
+export function SliderSorteo( {array } : {array: string[]} ) {
     return (
         <Swiper
         modules={[Navigation, Pagination, Scrollbar, A11y, Autoplay]}
