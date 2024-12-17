@@ -27,7 +27,7 @@ export const DetallesProd = ({ productSorteo }: { productSorteo: Product[] }) =>
                             <div className="w-full h-auto max-w-lg">
                                 <img
                                     className="w-full h-full object-cover rounded-lg"
-                                    src={product.ImagenRuta}
+                                    src={product.ImagenRuta[0]}
                                     alt={product.title}
                                 />
                             </div>
