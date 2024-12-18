@@ -9,7 +9,6 @@ import {
 
 export const DetallesProd = ({ productSorteo }: { productSorteo: Product[] }) => {
     const product = productSorteo[0];
-
     return (
         <div className="w-full h-[30%] p-4 flex items-center justify-center bg-gray-900 rounded-lg">
             <Dialog>

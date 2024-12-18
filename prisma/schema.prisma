@@ -74,14 +74,15 @@ model Product {
 }
 
 model UserInfo {
-  id         String   @id @default(auto()) @map("_id") @db.ObjectId
-  nombreCompleto   String
-  email            String   
-  celular          String
-  pais             String
+  id              String   @id @default(auto()) @map("_id") @db.ObjectId
+  nombreCompleto  String
+  email           String   @unique   // Aquí agregamos la restricción de unicidad
+  celular         String
+  pais            String
   numerosEscogidos String
-  createdAt        DateTime @default(now())
+  createdAt       DateTime @default(now())
 }
+
 
 model Fecha {
   id         String   @id @default(auto()) @map("_id") @db.ObjectId

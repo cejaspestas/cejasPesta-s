@@ -1,6 +1,7 @@
 import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { useEffect, useState } from "react";
-import { UserInfo as UserInfoType } from "@prisma/client";
+import { UserInfo, UserInfo as UserInfoType } from "@prisma/client";
+import { useData } from "@/context/fetchdatos";
 
 export const Section3 = ({ numerosEscogidosInput , setForm}: { numerosEscogidosInput: string, setForm: React.Dispatch<React.SetStateAction<boolean>> }) => {
     const [dataForm, setDataForm] = useState<Omit<UserInfoType, "id" | "createdAt">>({
@@ -12,6 +13,13 @@ export const Section3 = ({ numerosEscogidosInput , setForm}: { numerosEscogidosI
     });
     const [message, setMessage] = useState<string | null>(null);
     const [open, setOpen] = useState(false);
+    const [ userInfo, setUserInfo ] = useState<UserInfo[]>([]);
+    const { dataUser } = useData() ?? {};
+
+    useEffect(() => {
+        if (dataUser) setUserInfo(dataUser);
+    }, [dataUser]);
+    
 
     useEffect(() => {
         if (!numerosEscogidosInput) return; // No hay necesidad de modificar si no se pasa el input
@@ -37,6 +45,13 @@ export const Section3 = ({ numerosEscogidosInput , setForm}: { numerosEscogidosI
             setMessage("Todos los campos son obligatorios");
             return;
         }
+
+        let verify = userInfo.find((user) => user.email === dataForm.email);
+        if(verify){
+          setMessage("El correo ya se encuentra registrado");
+          return
+        }
+        
         setMessage(null);
         localStorage.setItem("dataForm", JSON.stringify(dataForm));
         setDataForm({
