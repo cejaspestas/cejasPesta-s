@@ -46,12 +46,12 @@ export const Section3 = ({ numerosEscogidosInput , setForm}: { numerosEscogidosI
             return;
         }
 
-        let verify = userInfo.find((user) => user.email === dataForm.email);
+        const verify = userInfo.find((user) => user.email === dataForm.email);
         if(verify){
           setMessage("El correo ya se encuentra registrado");
           return
         }
-        
+
         setMessage(null);
         localStorage.setItem("dataForm", JSON.stringify(dataForm));
         setDataForm({
