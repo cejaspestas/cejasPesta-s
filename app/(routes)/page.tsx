@@ -11,8 +11,7 @@ import Image from "next/image";
 export default function Home() {
   return (
     <>
-      {/* Sección Principal */}
-      <section className="relative h-[150vh] md:h-[120vh] w-full flex flex-col lg:flex-row items-center justify-center gap-5 p-5">
+      <section className="relative h-[150vh] md:h-[120vh] w-full flex flex-col lg:flex-row items-center justify-center gap-8 p-5">
         {/* Imagen de fondo */}
         <Image
           src="/wer.webp"
@@ -24,11 +23,11 @@ export default function Home() {
         />
 
         {/* Contenido principal */}
-        <div className="relative z-10 h-auto w-full lg:w-1/2 flex flex-col items-center text-center lg:items-start lg:text-left gap-y-6 p-4">
-          <h1 className="text-[8vh] md:text-[6vh] sm:text-[4vh] text-white font-bold font-serif leading-tight">
+        <div className="relative z-10 h-auto w-full lg:w-1/3 flex flex-col items-center text-center lg:items-start lg:text-left gap-y-6 p-4 mt-10 md:mt-20">
+          <h1 className="text-[6vh] md:text-[5vh] sm:text-[4vh] text-white font-bold font-serif leading-tight">
             Cejas y Pestañas Cúcuta
           </h1>
-          <p className="text-white font-mono text-lg md:text-2xl">
+          <p className="text-white font-mono text-base md:text-lg lg:text-xl">
             Belleza, cosmética y cuidado personal
           </p>
 
@@ -61,10 +60,11 @@ export default function Home() {
         </div>
 
         {/* Slider */}
-        <div className="relative z-10 w-full lg:w-1/2 h-[40vh] md:h-[60vh] rounded-md overflow-hidden shadow-lg">
+        <div className="relative z-10 w-full lg:w-2/5 h-[40vh] md:h-[65vh] rounded-md overflow-hidden shadow-lg mt-10 md:mt-0">
           <Slider />
         </div>
       </section>
+
 
 
       {/* Sección de Servicios */}

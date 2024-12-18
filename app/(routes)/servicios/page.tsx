@@ -34,7 +34,7 @@ export default function Servicios() {
             </div>
         </div>
         <PreciosHome />
-        <div className="w-full min-h-[90vh] md:min-h-[75vh] bg-[#000000] flex justify-center items-center flex-col gap-y-[7vh] ">
+        <div className="w-full min-h-[100vh] lg:min-h-[80vh] bg-[#000000] flex justify-center items-center flex-col gap-y-[7vh] ">
             <div className="w-[85%]">
                 <h1 className="text-white text-3xl md:text-4xl text-center pt-5 font-bold font-serif">Promociones</h1>
             </div>
