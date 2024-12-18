@@ -28,7 +28,7 @@ export default function Home() {
             Cejas y Pestañas Cúcuta
           </h1>
           <p className="text-white font-mono text-base md:text-lg lg:text-xl">
-            Belleza, cosmética y cuidado personal
+            Belleza, Cosmeticos y cuidado personal
           </p>
 
           {/* Botón Contacto */}
