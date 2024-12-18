@@ -33,7 +33,7 @@ export default function SobreNosotros() {
                 {/* Botón de llamada a la acción */}
                 <button
                     onClick={handler}
-                    className="mt-8 px-8 py-3 bg-gradient-to-r from-blue-500 to-purple-600 text-white rounded-lg text-lg font-semibold shadow-lg hover:from-purple-600 hover:to-blue-500 transition-transform transform hover:scale-105 sm:text-base"
+                    className="mt-8 px-8 py-3 bg-gradient-to-r from-orange-400 to-orange-700 text-white rounded-lg text-lg font-semibold shadow-lg hover:from-orange-600 hover:to-orange-700 transition-transform transform hover:scale-105 sm:text-base"
                 >
                     Conoce Más
                 </button>

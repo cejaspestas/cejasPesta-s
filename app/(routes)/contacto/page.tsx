@@ -56,7 +56,6 @@ export default function Contacto() {
 
     return (
         <div className="w-full min-h-[130vh] flex items-center justify-center flex-col p-4 gap-y-10">
-            <h1 className="text-4xl font-bold text-center mb-6 text-white">Contacto</h1>
             <div className="bg-[rgb(12,12,12)] shadow-lg rounded-lg p-6 w-[70%] ">
                 <h2 className="text-2xl font-medium mb-4 font-serif text-white text-center">Formulario de contacto</h2>
                 <form onSubmit={onSubmit}>
