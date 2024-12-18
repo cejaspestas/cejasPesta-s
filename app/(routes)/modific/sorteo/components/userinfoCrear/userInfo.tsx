@@ -8,9 +8,11 @@ export const UserInfo = () => {
     const [message, setMessage] = useState<string | null>(null);
     const [userInfo, setUserInfo] = useState<UserInfoType[]>([]);
     const { dataUser } = useData() ?? {}
+
     useEffect(() => {   
         if (dataUser) {
             setUserInfo(dataUser);
+            console.log(dataUser, "123213123123123312");
         }
 
     }, [dataUser]);

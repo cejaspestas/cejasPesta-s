@@ -38,7 +38,6 @@ export const DataProvider = ({ children }: { children: ReactNode }) => {
                 const parsedData = JSON.parse(storedData || "{}");
 
                 if (storedData) {
-    
                     // Establece los datos del almacenamiento en el estado
                     setContactos(parsedData.contactos);
                     setImagenes(parsedData.imagenes);
@@ -51,7 +50,7 @@ export const DataProvider = ({ children }: { children: ReactNode }) => {
                     setProductos(parsedData.productos);
                     setFecha(parsedData.fecha);
                 }
-    
+
                 // Haz la petición a la API
                 const response = await fetch("/api/datosdatos", {
                     method: "GET",
@@ -59,11 +58,13 @@ export const DataProvider = ({ children }: { children: ReactNode }) => {
                         "Content-Type": "application/json",
                     },
                 });
-    
+
                 if (response.ok) {
                     const data = await response.json();
                     const { contactos, imagenes, servicios, videos, clientes, precios, promociones, equipo, productos, dataUser, fecha } = data.info;
-    
+                    
+                        // Actualiza el estado de dataUser desde la API
+                    setDataUser(dataUser);
                     // Verifica si los datos obtenidos son diferentes de los almacenados
                     const newData = {
                         contactos,
@@ -77,7 +78,7 @@ export const DataProvider = ({ children }: { children: ReactNode }) => {
                         productos,
                         fecha,
                     };
-    
+
                     if (!storedData || JSON.stringify(parsedData) !== JSON.stringify(newData)) {
                         // Actualiza el estado con los nuevos datos
                         setContactos(contactos);
@@ -89,10 +90,9 @@ export const DataProvider = ({ children }: { children: ReactNode }) => {
                         setPromociones(promociones);
                         setEquipo(equipo);
                         setProductos(productos);
-                        setDataUser(dataUser);
                         setFecha(fecha);
-    
-                        // Guarda los nuevos datos en sessionStorage
+
+                        // Guarda los nuevos datos en sessionStorage, sin incluir dataUser
                         sessionStorage.setItem("dataContext", JSON.stringify(newData));
                     }
                 } else {
@@ -102,10 +102,9 @@ export const DataProvider = ({ children }: { children: ReactNode }) => {
                 console.error(error instanceof Error ? "Error fetching data:" : error);
             }
         };
-    
+
         fetchData();
     }, []); // Empty dependency array para ejecutar solo al montar el componente
-    
 
     const value = {
         contactos,
