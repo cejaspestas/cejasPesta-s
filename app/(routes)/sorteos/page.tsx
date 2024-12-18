@@ -32,13 +32,12 @@ export default function Sorteos() {
                         },
                         body: JSON.stringify(datalocalstorage),
                     });
-                    console.log(response);
     
                     const data = await response.json();
                     if (response.ok) {
-                        console.log("Éxito:", data);
+                        console.log( data ? "Éxito:" : "");
                     } else {
-                        console.error("Error en la respuesta:", data);
+                        console.error(data ?"Error en la respuesta:" : "");
                     }
                 } catch (error) {
                     console.error("Error fetching data:", error instanceof Error ? "error" : "Unknown error");
