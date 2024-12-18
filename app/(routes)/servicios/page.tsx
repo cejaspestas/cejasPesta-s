@@ -18,7 +18,7 @@ export default function Servicios() {
                 <p className="text-white text-center font-mono text-lg lg:text-2xl">
                     En Cejas y Pestañas en Cúcuta nos especializamos en realzar tu belleza natural a través de servicios de micropigmentación de cejas, así como tratamientos especializados en belleza, cosmética y cuidado personal. Contamos con técnicas avanzadas y profesionales capacitados para brindarte resultados impecables y personalizados, adaptados a tus necesidades. Déjanos resaltar tu mirada y consentir tu piel con la atención que mereces. ¡Transforma tu imagen con nosotros y luce tu mejor versión! ✨
                 </p>
-                <div className="w-full min-h-[50vh] md:min-h-[70vh] flex">
+                <div className=" w-full min-h-[50vh] md:min-h-[70vh] flex justify-center items-center">
                     <DataServicios count={count} />
                 </div>
                 <button
