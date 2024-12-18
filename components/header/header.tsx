@@ -26,7 +26,7 @@ export function Header() {
             className={`flex fixed ${
                 rutas.includes(pathname) ? "hidden" : ""
             } items-center px-2 gap-x-4 md:px-6 justify-between w-full transition-all ease-in-out h-[14vh] z-[300]  ${
-                scrollPosition ? "bg-[rgb(0,0,0)] " : "bg-transparent"
+                scrollPosition ? "bg-gradient-to-b from-gray-950 to-black" : "bg-transparent"
             }`}
         >
             <div>

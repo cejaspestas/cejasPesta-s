@@ -34,11 +34,15 @@ export default function Servicios() {
             </div>
         </div>
         <PreciosHome />
-        <div className="w-full min-h-[100vh] lg:min-h-[80vh] bg-[#000000] flex justify-center items-center flex-col gap-y-[7vh] ">
+        <div className="w-full min-h-[100vh] lg:min-h-[80vh] bg-gradient-to-b from-gray-950 to-black flex justify-center items-center flex-col gap-y-[5vh]">
             <div className="w-[85%]">
-                <h1 className="text-white text-3xl md:text-4xl text-center pt-5 font-bold font-serif">Promociones</h1>
+                <h1 className="text-white text-3xl md:text-4xl text-center pt-5 font-bold font-serif">
+                Promociones
+                </h1>
             </div>
-            <PromocionesHome/>
+            <div className="w-[85%] min-h-[50vh] flex justify-center items-center">
+                <PromocionesHome />
+            </div>
         </div>
         <TeamDisplay/>
     
