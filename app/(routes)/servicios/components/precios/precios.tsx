@@ -4,7 +4,7 @@ import { Precio } from "@prisma/client";
 import { useData } from "@/context/fetchdatos";
 
 export const PreciosHome = () => {
-  const [dataPrecios, setDataPrecios] = useState<Precio[] | any>([]);
+  const [dataPrecios, setDataPrecios] = useState<Precio[]>([]);
   const [isLoading, setIsLoading] = useState(true); // Estado para manejar la carga
   const { precios } = useData() ?? {};
 
