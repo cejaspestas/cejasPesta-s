@@ -5,13 +5,13 @@ import { db } from "@/lib/db"
 export async function POST(request: Request) {
     try {
         const data = await request.json();
-
+        console.log(data);
         if (!data) {
             return NextResponse.json({ error: 'No se han recibido datos' }, { status: 500 });
         }
 
         const { nombreCompleto, email, celular, pais, numerosEscogidos } = data;
-
+        console.log(nombreCompleto, email, celular, pais, numerosEscogidos);
         if (!nombreCompleto || !email || !celular || !pais || !numerosEscogidos) {
             return NextResponse.json({ error: 'Todos los campos son obligatorios' }, { status: 400 });
         }
