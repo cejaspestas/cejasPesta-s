@@ -50,12 +50,12 @@ export const PreciosHome = () => {
         {/* Contenedor de precios */}
         <div className="relative z-10 p-5 w-full h-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {dataPrecios &&
-            dataPrecios.slice(0, 3).map((precio : any) => (
+            dataPrecios.slice(0, 3).map((precio ) => (
               <div
                 key={precio.id}
                 className="hover:bg-orange-600 hover:scale-105 transition-transform bg-[#1f1f1f] rounded-md shadow-md flex flex-col items-center justify-center p-6 h-full"
               >
-                <h2 className="text-xl font-bold font-mono mb-2">{precio.tipoServicio || precio.nombre}</h2>
+                <h2 className="text-xl font-bold font-mono mb-2">{precio.tipoServicio}</h2>
                 <h3 className="text-lg font-mono font-bold mb-1">
                   Precio: {new Intl.NumberFormat("es-CO", { style: "currency", currency: "COP" }).format(precio.precio)} COP
                 </h3>
