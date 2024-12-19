@@ -10,7 +10,7 @@ export const Footer = () => {
     const rutas = ["/modific/sorteo", "/modific/crear", "/modific/mostrar", "/sorteos"]
 
     return (
-        <footer className={`bg-[#191919] text-white py-20 px-6 flex items-center justify-center ${rutas.includes(pathname) ? "hidden" : ""}`}>
+        <footer className={`bg-[#0e0e0e] text-white py-20 px-6 flex items-center justify-center ${rutas.includes(pathname) ? "hidden" : ""}`}>
             <div className="w-full max-w-[1200px] container mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
                 {/* Sección de información */}
                 <div>

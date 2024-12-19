@@ -10,7 +10,7 @@ export default function Servicios() {
 
   return (
     <>
-        <div className="w-full min-h-[220vh] md:min-h-[150vh] bg-[rgb(12,12,12)] flex justify-center items-start">
+        <div className="w-full min-h-[220vh] md:min-h-[150vh]  bg-gradient-to-b from-gray-950 to-black flex justify-center items-start">
             <div className="w-[85%] min-h-[120vh] mt-[20vh] flex flex-col justify-between p-5 gap-y-5 md:gap-y-10">
                 <h1 className="font-serif text-white text-3xl md:text-6xl text-center pt-5 font-bold">
                     Servicios

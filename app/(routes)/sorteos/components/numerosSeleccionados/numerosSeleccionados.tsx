@@ -46,7 +46,7 @@ export const Section2 = () => {
   };
 
   return (
-      <section className="w-[90%] lg:w-[83%] h-auto bg-[rgb(18,18,18)] flex flex-col items-center justify-center gap-10 py-10 px-4 rounded-lg shadow-xl">
+      <section className="w-[90%] lg:w-[83%] h-auto bg-gradient-to-b from-gray-950 to-black  flex flex-col items-center justify-center gap-10 py-10 px-4 rounded-lg shadow-xl">
         <h2 className="text-white text-2xl lg:text-4xl text-center font-bold font-serif">
           Selección de Números
         </h2>

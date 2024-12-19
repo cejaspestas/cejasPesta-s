@@ -8,7 +8,7 @@ export default function SobreNosotros() {
     };
 
     return (
-        <div className="min-h-[130vh]   lg:min-h-screen  bg-[rgb(12,12,12)] flex items-center justify-center">
+        <div className="min-h-[130vh]   lg:min-h-[110vh]   bg-gradient-to-b from-gray-950 to-black flex items-center justify-center">
             <div className="flex flex-col items-center justify-center h-full p-8 gap-y-10">
                 {/* Título */}
                 <h1 className="text-5xl font-bold text-white tracking-wide mb-6 text-center md:text-4xl sm:text-3xl font-serif">

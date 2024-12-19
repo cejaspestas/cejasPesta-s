@@ -41,7 +41,7 @@ export const Datavideos = ({ count }: { count: number }) => {
                 countdataVideo.map((ele, i) => (
                     <div
                         key={i}
-                        className="bg-[#141414] h-auto text-white p-6 rounded-md shadow-md hover:shadow-lg transition-shadow duration-300"
+                        className="bg-gradient-to-b from-gray-950 to-black h-auto text-white p-6 rounded-md shadow-md hover:shadow-lg transition-shadow duration-300"
                     >
                         {ele.videoRuta ? (
                             <div className="relative w-full overflow-y-scroll" style={{ paddingTop: "56.25%" }}>

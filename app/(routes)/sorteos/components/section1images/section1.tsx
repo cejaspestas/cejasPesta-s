@@ -24,7 +24,7 @@ export const Section1 = () => {
     return (
         <section className="relative p-4 w-[95%] sm:w-[90%] lg:w-[85%] min-h-screen lg:h-[120vh] flex flex-col items-center justify-center mx-auto gap-y-5 ">
             <h1 className="text-lg sm:text-xl lg:text-3xl font-serif text-white font-bold drop-shadow-xl">🎉 ¡Participa en Nuestra Gran Rifa y Gana Sorprendentes Premios! 🎟️ </h1>
-            <div className="bg-[rgb(18,18,18)] min-h-[100vh] w-full flex flex-col lg:flex-row justify-center items-center gap-y-5 lg:gap-x-5 mt-5 lg:mt-0 p-5 rounded-lg shadow-xl">
+            <div className="bg-gradient-to-b from-gray-950 to-black  min-h-[100vh] w-full flex flex-col lg:flex-row justify-center items-center gap-y-5 lg:gap-x-5 mt-5 lg:mt-0 p-5 rounded-lg shadow-xl">
                 {/* Sección de texto */}
                 <div className="w-full lg:w-[50%] flex flex-col items-center gap-y-6 p-6 rounded-lg">
                     <div className="p-4 w-full text-center rounded-lg shadow-md ">

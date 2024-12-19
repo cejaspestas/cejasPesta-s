@@ -20,7 +20,7 @@ export const PreciosHome = () => {
   }
 
   return (
-    <div className="relative bg-[rgb(12,12,12)] border-t-2 text-white p-8 overflow-hidden h-auto md:h-[85vh] flex items-center justify-center border-b-2 border-white">
+    <div className="relative bg-[rgb(0,0,0)] border-t-2 text-white p-8 overflow-hidden h-auto md:h-[85vh] flex items-center justify-center border-b-2 border-white">
       {/* Contenedor principal */}
       <div className="relative z-10 w-full max-w-6xl h-auto md:h-[85%]">
         {/* Contenedor del título */}
