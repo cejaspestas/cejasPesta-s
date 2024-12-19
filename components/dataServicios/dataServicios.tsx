@@ -27,7 +27,7 @@ export const DataServicios = ({ count }: { count: number }) => {
             {countdataServices.map((ele, i) => (
                 <div
                     key={i}
-                    className="hover:bg-orange-600 hover:scale-[1.05] flex flex-col justify-start items-start bg-gradient-to-b from-gray-950 to-black w-full h-full text-white p-5 rounded-md shadow-md hover:shadow-lg transition-transform duration-300"
+                    className="hover:bg-orange-600 hover:scale-[1.05] flex flex-col justify-start items-start bg-gradient-to-b from-gray-900 to-gray-950 w-full h-full text-white p-5 rounded-md shadow-md hover:shadow-lg transition-transform duration-300"
                 >
                     <img
                         src={ele.imagenRuta}
