@@ -35,10 +35,10 @@ export const DetallesProd = ({ productSorteo }: { productSorteo: Product[] }) =>
                                 Imagen no disponible
                             </div>
                         )}
-                        <p className="text-xl text-gray-700">
+                        <p className="text-xl text-white">
                             {product?.description || "Descripción no disponible"}
                         </p>
-                        <p className="text-xl text-gray-700">
+                        <p className="text-xl text-white">
                             {product?.caracteristicas || "Precio no disponible"}
                         </p>
                     </div>
