@@ -23,19 +23,27 @@ export const DataServicios = ({ count }: { count: number }) => {
     const countdataServices = serviciosdata.slice(0, ccc); // Slice the array to the required count
 
     return (
-        <div className="relative w-[90%] h-[35%] md:h-[50%] lg:w-full lg:h-[85%] grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 grid-rows-[repeat(auto-fill,minmax(1fr))] gap-4 p-5">
+        <div className="relative w-[90%] md:w-[80%] lg:w-full mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-4 md:gap-8 md:p-6 lg:p-8">
             {countdataServices.map((ele, i) => (
                 <div
                     key={i}
-                    className="hover:bg-orange-600 hover:scale-[1.05] flex flex-col justify-start items-start bg-gradient-to-b from-gray-900 to-gray-950 w-full h-full text-white p-5 rounded-md shadow-md hover:shadow-lg transition-transform duration-300"
+                    className="group flex flex-col justify-between bg-gradient-to-b from-gray-900 to-gray-950 w-full h-full text-white p-5 rounded-lg shadow-lg hover:shadow-xl transition-transform duration-300 hover:scale-105"
                 >
-                    <img
-                        src={ele.imagenRuta}
-                        alt={ele.titulo}
-                        className="w-full h-[50%] object-cover rounded-md mb-4"
-                    />
-                    <h2 className="text-lg font-bold mb-2 text-center uppercase font-mono">{ele.titulo}</h2>
-                    <p className="text-gray-400 text-sm text-center capitalize font-mono ">{ele.descripcion}</p>
+                    <div className="w-full h-[200px] sm:h-[250px] lg:h-[300px] overflow-hidden rounded-md mb-4">
+                        <img
+                            src={ele.imagenRuta}
+                            alt={ele.titulo}
+                            className="w-full h-full object-cover group-hover:opacity-90 transition-opacity duration-300"
+                        />
+                    </div>
+                    <div className="text-center">
+                        <h2 className="text-lg font-bold mb-2 uppercase font-mono group-hover:text-orange-500 transition-colors duration-300">
+                            {ele.titulo}
+                        </h2>
+                        <p className="text-gray-400 text-sm capitalize font-mono leading-relaxed">
+                            {ele.descripcion}
+                        </p>
+                    </div>
                 </div>
             ))}
         </div>

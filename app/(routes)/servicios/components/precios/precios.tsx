@@ -50,20 +50,19 @@ export const PreciosHome = () => {
         {/* Contenedor de precios */}
         <div className="relative z-10 p-5 w-full h-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {dataPrecios &&
-            dataPrecios.slice(0, 3).map((precio ) => (
+            dataPrecios.slice(0, 3).map((precio) => (
               <div
                 key={precio.id}
-                className="hover:bg-orange-600 hover:scale-105 transition-transform bg-[#1f1f1f] rounded-md shadow-md flex flex-col items-center justify-center p-6 h-full"
+                className="hover:bg-orange-600 hover:scale-105 transition-all bg-[#1f1f1f] rounded-md shadow-lg flex flex-col items-center justify-center p-6 h-full hover:shadow-xl"
               >
-                <h2 className="text-xl font-bold font-mono mb-2">{precio.tipoServicio}</h2>
-                <h3 className="text-lg font-mono font-bold mb-1">
+                <h2 className="text-xl font-bold font-mono mb-2 text-center">{precio.tipoServicio}</h2>
+                <h3 className="text-lg font-mono font-bold mb-1 text-center">
                   Precio: {new Intl.NumberFormat("es-CO", { style: "currency", currency: "COP" }).format(precio.precio)} COP
                 </h3>
-                <p className="text-sm md:text-base font-mono text-gray-300">
+                <p className="text-sm md:text-base font-mono text-gray-300 text-center">
                   {precio.descripcion}
                 </p>
               </div>
-
             ))}
         </div>
       </div>
