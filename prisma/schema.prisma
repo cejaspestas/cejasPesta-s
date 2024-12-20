@@ -86,7 +86,6 @@ model UserInfo {
 
 model Fecha {
   id         String   @id @default(auto()) @map("_id") @db.ObjectId
-  fInicio   String
   fFinal    String
   createdAt DateTime @default(now())
 }

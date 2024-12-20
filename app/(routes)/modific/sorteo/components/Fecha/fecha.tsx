@@ -7,7 +7,6 @@ export const FechaCrear = () => {
   const [dataFecha, setDataFecha] = useState<Fecha[]>([]);
   const [message, setMessage] = useState("");
   const [datosInput, setDatosInput] = useState<Omit<Fecha, "id" | "createdAt">>({
-    fInicio: "",
     fFinal: "",
   });
   const {fecha } = useData() ?? {};
@@ -33,7 +32,7 @@ export const FechaCrear = () => {
         setMessage( "Ya hay una fecha creada");
         return
       }else {
-        if (!datosInput.fInicio || !datosInput.fFinal) {
+        if (!datosInput.fFinal) {
           setMessage("Todos los campos son obligatorios");
           return;
         }
@@ -43,7 +42,6 @@ export const FechaCrear = () => {
             "Content-Type": "application/json",
           },
           body: JSON.stringify({
-            fInicio: datosInput.fInicio,
             fFinal: datosInput.fFinal,
           }),
         });
@@ -84,13 +82,7 @@ export const FechaCrear = () => {
         <h1 className="text-2xl font-bold mb-4">Crear Fecha</h1>
         <form onSubmit={onSubmit} className="space-y-4">
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <input
-              onChange={onChange}
-              type="date"
-              name="fInicio"
-              placeholder="Fecha inicio"
-              className="p-2 border border-gray-300 rounded-lg"
-            />
+            <label className="text-gray-600">Fecha Final:</label>
             <input
               onChange={onChange}
               type="date"
@@ -117,7 +109,6 @@ export const FechaCrear = () => {
           <thead>
             <tr className="bg-gray-200 text-left">
               <th className="p-2 border">ID</th>
-              <th className="p-2 border">Fecha Inicio</th>
               <th className="p-2 border">Fecha Final</th>
               <th className="p-2 border">Creado</th>
               <th className="p-2 border">Acciones</th>
@@ -127,7 +118,6 @@ export const FechaCrear = () => {
             {dataFecha.map((item, i) => (
                 <tr key={i} className="odd:bg-white even:bg-gray-100">
                 <td className="p-2 border">{item.id}</td>
-                <td className="p-2 border">{new Date(item.fInicio).toLocaleDateString()}</td>
                 <td className="p-2 border">{new Date(item.fFinal).toLocaleDateString()}</td>
                 <td className="p-2 border">{new Date(item.createdAt).toLocaleDateString()}</td>
                 <td className="p-2 border">
