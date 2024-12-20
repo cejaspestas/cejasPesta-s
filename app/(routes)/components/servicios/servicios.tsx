@@ -37,7 +37,7 @@ export const ServiciosHome = () => {
                     </div>
                 </div>
 
-                <div className="w-[100%] h-[80%] overflow-auto">
+                <div className="w-[100%] h-[80%]">
                     {
                         <DataServicios count={3} />
                     }

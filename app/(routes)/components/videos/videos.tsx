@@ -25,11 +25,10 @@ export const VideosHome = () => {
                         <h1 className="text-6xl font-bold font-serif absolute text-white">Videos</h1>
                     </div>
                 </div>
-
-                {/* Contenedor de videos */}
-                <div className="w-full h-[80%] overflow-auto">
+                <div className="w-full h-[80%] overflow-auto dark-scrollbar">
                     <Datavideos count={5} />
                 </div>
+
             </div>
         </div>
     );

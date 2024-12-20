@@ -8,6 +8,31 @@ body {
   min-height: 150vh;
 }
 
+.dark-scrollbar {
+  scrollbar-width: thin; /* Para Firefox */
+  scrollbar-color: #444 #222; /* Para Firefox */
+}
+
+.dark-scrollbar::-webkit-scrollbar {
+  width: 10px; /* Ancho del scroll */
+  height: 10px; /* Altura del scroll (horizontal) */
+}
+
+.dark-scrollbar::-webkit-scrollbar-thumb {
+  background-color: #444; /* Color de la barra */
+  border-radius: 5px; /* Bordes redondeados */
+  border: 2px solid #222; /* Espacio alrededor */
+}
+
+.dark-scrollbar::-webkit-scrollbar-track {
+  background-color: #222; /* Color del track */
+  border-radius: 5px;
+}
+
+.dark-scrollbar:hover::-webkit-scrollbar-thumb {
+  background-color: #666; /* Cambia el color al pasar el cursor */
+}
+
 @layer base {
   :root {
     --background: 0 0% 100%;
