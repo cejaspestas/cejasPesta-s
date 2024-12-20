@@ -68,7 +68,9 @@ export const UserInfo = () => {
                                     <td className="px-4 py-2">{user.celular}</td>
                                     <td className="px-4 py-2">{user.pais}</td>
                                     <td className="px-4 py-2">{user.numerosEscogidos}</td>
-                                    <td className="px-4 py-2">{user.createdAt as unknown as string}</td>
+                                    <td className="px-4 py-2">
+                                        {user.createdAt ? new Date(user.createdAt).toLocaleDateString() : "Fecha no disponible"}
+                                    </td>
                                     <td className="px-4 py-2 text-center">
                                         <button
                                             onClick={() => handleDelete(user.id)}
