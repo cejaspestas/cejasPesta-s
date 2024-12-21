@@ -4,6 +4,7 @@ import { NavMobile } from "./components/navbarMobile";
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
 import Image from "next/image";
+import Link from "next/link";
 
 export function Header() {
     const [scrollPosition, setScrollPosition] = useState<boolean>(false);
@@ -29,7 +30,7 @@ export function Header() {
             }`}
         >
             <div className="flex items-center">
-                <a href="/">
+                <Link  href="/">
                     <Image
                         src="/logo1.png"
                         alt="logo"
@@ -37,7 +38,7 @@ export function Header() {
                         height={150} // Ajusta este valor según el tamaño necesario
                         className="object-contain w-20 h-20 md:h-20" // Aumenté el tamaño para pantallas pequeñas y grandes
                     />
-                </a>
+                </Link>
             </div>
             {/* Mostrar solo en escritorio */}
             <div className="hidden md:flex">
