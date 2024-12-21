@@ -13,9 +13,10 @@ import { useData } from '@/context/fetchdatos';
 
 export default function Slider() {
   const [images, setImages] = useState<Imagen[]>([]);
-  const  { imagenes } = useData() ?? {};
+  const { imagenes } = useData() ?? {};
+
   useEffect(() => {
-    if  (imagenes) {
+    if (imagenes) {
       setImages(imagenes);
     }
   }, [imagenes]);
@@ -34,16 +35,20 @@ export default function Slider() {
           disableOnInteraction: false, // Sigue reproduciendo incluso si el usuario interactúa
         }}
         className="w-full h-full"
+        loop={true} // Habilitar loop para que las imágenes se repitan
       >
         {images.map((image) => (
           <SwiperSlide key={image.id} className="flex items-center justify-center w-full h-full">
-            <Image
-              src={image.ruta}
-              alt="Imagen"
-              fill
-              className="object-cover"
-              sizes="(max-width: 768px) 100vw, 50vw" // Opcional para manejo responsivo
-            />
+            <div className="w-full h-full relative group">
+              <Image
+                src={image.ruta}
+                alt="Imagen"
+                fill
+                className="object-cover group-hover:scale-110 transition-all duration-500 ease-in-out"
+                sizes="(max-width: 768px) 100vw, 50vw" // Opcional para manejo responsivo
+              />
+              <div className="absolute top-0 left-0 w-full h-full bg-black opacity-30 transition-opacity duration-500 group-hover:opacity-0"></div>
+            </div>
           </SwiperSlide>
         ))}
       </Swiper>

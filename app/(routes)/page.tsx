@@ -28,7 +28,7 @@ export default function Home() {
             Cejas y Pestañas Cúcuta
           </h1>
           <p className="text-white font-mono text-base md:text-lg lg:text-xl">
-            Belleza, Cosmeticos y cuidado personal
+            Belleza, Cosméticos y cuidado personal
           </p>
 
           {/* Botón Contacto */}
@@ -60,7 +60,7 @@ export default function Home() {
         </div>
 
         {/* Slider */}
-        <div className="relative z-10 w-full lg:w-2/5 h-[40vh] md:h-[65vh] rounded-md overflow-hidden shadow-lg mt-10 md:mt-0">
+        <div className="relative z-10 w-full lg:w-2/5 h-[40vh] md:h-[65vh] rounded-lg overflow-hidden shadow-xl mt-10 md:mt-0 bg-gradient-to-r from-gray-800 via-gray-900 to-black p-2">
           <Slider />
         </div>
       </section>
