@@ -68,17 +68,17 @@ export default function Home() {
 
 
       {/* Sección de Servicios */}
-      <div className="px-4 py-8">
+      <div>
         <ServiciosHome />
       </div>
 
       {/* Sección de Videos */}
-      <div className="px-4 py-8">
+      <div>
         <VideosHome />
       </div>
 
       {/* Sección de Clientes */}
-      <div className="px-4 py-8">
+      <div>
         <ClienteHome />
       </div>
     </>
