@@ -78,62 +78,66 @@ export const FechaCrear = () => {
 
   return (
     <section className="p-8 bg-gray-700 min-h-screen">
-      <div className="mb-10 bg-white shadow-md rounded-lg p-6">
-        <h1 className="text-2xl font-bold mb-4">Crear Fecha</h1>
-        <form onSubmit={onSubmit} className="space-y-4">
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <label className="text-gray-600">Fecha Final:</label>
-            <input
-              onChange={onChange}
-              type="date"
-              name="fFinal"
-              placeholder="Fecha finales"
-              className="p-2 border border-gray-300 rounded-lg"
-            />
-          </div>
-          <button
-            type="submit"
-            className="bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700"
-          >
-            Crear
-          </button>
-        </form>
-        {message && (
-          <p className="mt-4 text-sm text-center text-green-600">{message}</p>
-        )}
-      </div>
+        <div className="mb-10 bg-white shadow-md rounded-lg p-6">
+          <h1 className="text-2xl font-bold mb-4 text-center sm:text-left">Crear Fecha</h1>
+          <form onSubmit={onSubmit} className="space-y-4">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <label className="text-gray-600">Fecha Final:</label>
+              <input
+                onChange={onChange}
+                type="date"
+                name="fFinal"
+                placeholder="Fecha finales"
+                className="p-2 border border-gray-300 rounded-lg w-full"
+              />
+            </div>
+            <div className="flex justify-center sm:justify-start">
+              <button
+                type="submit"
+                className="bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 w-full sm:w-auto"
+              >
+                Crear
+              </button>
+            </div>
+          </form>
+          {message && (
+            <p className="mt-4 text-sm text-center text-green-600">{message}</p>
+          )}
+        </div>
 
-      <div className="bg-white shadow-md rounded-lg p-6">
-        <h1 className="text-2xl font-bold mb-4">Mostrar Fechas</h1>
-        <table className="w-full table-auto border-collapse">
-          <thead>
-            <tr className="bg-gray-200 text-left">
-              <th className="p-2 border">ID</th>
-              <th className="p-2 border">Fecha Final</th>
-              <th className="p-2 border">Creado</th>
-              <th className="p-2 border">Acciones</th>
-            </tr>
-          </thead>
-          <tbody>
-            {dataFecha.map((item, i) => (
-                <tr key={i} className="odd:bg-white even:bg-gray-100">
-                <td className="p-2 border">{item.id}</td>
-                <td className="p-2 border">{new Date(item.fFinal).toLocaleDateString()}</td>
-                <td className="p-2 border">{new Date(item.createdAt).toLocaleDateString()}</td>
-                <td className="p-2 border">
-                    <button
-                    onClick={() => handleDelete(item.id)}
-                    className="text-red-600 hover:underline"
-                    >
-                    Eliminar
-                    </button>
-                </td>
+        <div className="bg-white shadow-md rounded-lg p-6">
+          <h1 className="text-2xl font-bold mb-4 text-center sm:text-left">Mostrar Fechas</h1>
+          <div className="overflow-x-auto">
+            <table className="w-full table-auto border-collapse">
+              <thead>
+                <tr className="bg-gray-200 text-left">
+                  <th className="p-2 border">ID</th>
+                  <th className="p-2 border">Fecha Final</th>
+                  <th className="p-2 border">Creado</th>
+                  <th className="p-2 border">Acciones</th>
                 </tr>
-            ))}
-          </tbody>
-
-        </table>
-      </div>
+              </thead>
+              <tbody>
+                {dataFecha.map((item, i) => (
+                  <tr key={i} className="odd:bg-white even:bg-gray-100">
+                    <td className="p-2 border">{item.id}</td>
+                    <td className="p-2 border">{new Date(item.fFinal).toLocaleDateString()}</td>
+                    <td className="p-2 border">{new Date(item.createdAt).toLocaleDateString()}</td>
+                    <td className="p-2 border">
+                      <button
+                        onClick={() => handleDelete(item.id)}
+                        className="text-red-600 hover:underline"
+                      >
+                        Eliminar
+                      </button>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
     </section>
+
   );
 };
