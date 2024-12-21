@@ -17,16 +17,19 @@ export const ClienteHome = () => {
                                 y="50%"
                                 textAnchor="middle"
                                 dominantBaseline="middle"
-                                className="text-3xl  md:text-4xl font-serif font-bold fill-none stroke-white stroke-2"
+                                className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold fill-none stroke-white stroke-2"
                             >
                                 NUESTROS CLIENTES
                             </text>
                         </svg>
-                        <h1 className="relative font-bold text-3xl text-center  sm:text-4xl lg:text-5xl z-30 font-serif">
+                        <h1 className="relative font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-center z-30 font-serif">
                             Nuestros Clientes/Resultados
                         </h1>
-                        <p className="relative mt-4 text-sm sm:text-base lg:text-lg font-mono">
-                            Nos enorgullece contar con una increíble variedad de clientes que confían en nuestros servicios de cejas y pestañas. Cada uno de ellos busca realzar su belleza de forma única, y nos sentimos honrados de poder ofrecerles el mejor cuidado y atención para conseguir resultados impecables. Estos son algunos de nuestros maravillosos clientes, quienes han experimentado la transformación que solo nosotros podemos ofrecer.
+                        <p className="relative mt-4 text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl leading-snug sm:leading-relaxed md:leading-loose font-mono text-center md:text-left">
+                            Nos enorgullece contar con una increíble variedad de clientes que confían en nuestros servicios de cejas y pestañas. 
+                            Cada uno de ellos busca realzar su belleza de forma única, y nos sentimos honrados de poder ofrecerles el mejor cuidado 
+                            y atención para conseguir resultados impecables. Estos son algunos de nuestros maravillosos clientes, quienes han 
+                            experimentado la transformación que solo nosotros podemos ofrecer.
                         </p>
                     </div>
                 </div>
