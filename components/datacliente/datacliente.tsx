@@ -52,7 +52,7 @@ export const DataCliente = () => {
       {dataClientes && dataClientes.map((image: Cliente) => (
         <SwiperSlide
           key={image.id}
-          className="flex flex-col gap-4 items-center justify-center bg-gradient-to-b from-gray-900 to-gray-950 rounded-md shadow-lg"
+          className="flex flex-col gap-4 items-center justify-center bg-bgsecond rounded-md shadow-lg p-10"
         >
           <div className="relative w-full h-64">
             <Image
@@ -62,8 +62,8 @@ export const DataCliente = () => {
               className="object-cover rounded-md"
             />
           </div>
-          <h2 className="mt-4 text-lg font-bold font-mono text-center text-white">{image.nombre}</h2>
-          <h3 className="text-sm text-gray-500 font-mono text-center">{image.tipoServicio}</h3>
+          <h2 className="mt-4 text-lg font-bold font-mono text-center text-textprin hover:text-texthover">{image.nombre}</h2>
+          <h3 className="text-sm text-textprin font-mono text-center">{image.tipoServicio}</h3>
         </SwiperSlide>
       ))}
     </Swiper>

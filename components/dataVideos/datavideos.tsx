@@ -41,7 +41,7 @@ export const Datavideos = ({ count }: { count: number }) => {
                 countdataVideo.map((ele, i) => (
                     <div
                         key={i}
-                        className="group bg-gradient-to-b from-gray-900 to-gray-950 h-auto text-white p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
+                        className="group bg-bgtecer  p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
                     >
                         {ele.videoRuta ? (
                             <div className="relative w-full overflow-hidden rounded-md" style={{ paddingTop: "56.25%" }}>
@@ -60,10 +60,10 @@ export const Datavideos = ({ count }: { count: number }) => {
                             </p>
                         )}
                         <div className="mt-4">
-                            <h2 className="text-lg font-bold font-mono mb-2 group-hover:text-orange-500 transition-colors duration-300">
+                            <h2 className="text-lg  text-textprin font-bold font-mono mb-2 group-hover:text-texthover transition-colors duration-300">
                                 {ele.titulo || "Sin título"}
                             </h2>
-                            <p className="text-gray-400 text-sm mb-4 font-mono">
+                            <p className="text-textprin text-sm mb-4 font-mono">
                                 {ele.descripcion || "Sin descripción"}
                             </p>
                         </div>

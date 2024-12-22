@@ -11,8 +11,7 @@ import Image from "next/image";
 export default function Home() {
   return (
     <>
-      <section className="relative h-[150vh] md:h-[120vh] w-full flex flex-col lg:flex-row items-center justify-center gap-8 p-5">
-        {/* Imagen de fondo */}
+      <section className="relative h-[120vh] md:h-[120vh] w-full flex flex-col lg:flex-row items-center justify-center gap-8 p-5 bg-bgsecond">
         <Image
           src="/wer.webp"
           alt="wer"
@@ -21,20 +20,18 @@ export default function Home() {
           height={1000}
           priority
         />
-
-        {/* Contenido principal */}
         <div className="relative z-10 h-auto w-full lg:w-1/3 flex flex-col items-center text-center lg:items-start lg:text-left gap-y-6 p-4 mt-10 md:mt-20">
-          <h1 className="text-[6vh] md:text-[5vh] sm:text-[4vh] text-white font-bold font-serif leading-tight">
+          <h1 className="text-[6vh] md:text-[5vh] sm:text-[4vh] text-textprin font-bold font-serif leading-tight">
             Cejas y Pestañas Cúcuta
           </h1>
-          <p className="text-white font-mono text-base md:text-lg lg:text-xl">
+          <p className="text-textprin font-mono text-base md:text-lg lg:text-xl">
             Belleza, Cosméticos y cuidado personal
           </p>
 
           {/* Botón Contacto */}
           <div className="flex justify-center lg:justify-start">
             <Link href="https://wa.me/573112000000" target="_blank">
-              <button className="bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 px-6 rounded-lg text-sm md:text-base transition-all duration-300 ease-in-out shadow-md hover:shadow-lg">
+              <button className="bg-texthover hover:bg-bghoverpara text-textprin font-bold py-3 px-6 rounded-lg text-sm md:text-base transition-all duration-300 ease-in-out shadow-md hover:shadow-lg">
                 <span className="font-mono">Contacta Con Nosotros</span>
               </button>
             </Link>
@@ -60,25 +57,23 @@ export default function Home() {
         </div>
 
         {/* Slider */}
-        <div className="relative z-10 w-full lg:w-2/5 h-[40vh] md:h-[65vh] rounded-lg overflow-hidden shadow-xl mt-10 md:mt-0 bg-gradient-to-r from-gray-800 via-gray-900 to-black p-2">
+        <div className="relative z-10 w-full lg:w-2/5 h-[40vh] md:h-[65vh] rounded-lg overflow-hidden shadow-xl mt-10 md:mt-0 bg-gradient-to-r from-bgprin via-bgsecond to-black p-2">
           <Slider />
         </div>
       </section>
 
-
-
       {/* Sección de Servicios */}
-      <div className="px-4 py-8">
+      <div>
         <ServiciosHome />
       </div>
 
       {/* Sección de Videos */}
-      <div className="px-4 py-8">
+      <div>
         <VideosHome />
       </div>
 
       {/* Sección de Clientes */}
-      <div className="px-4 py-8">
+      <div>
         <ClienteHome />
       </div>
     </>

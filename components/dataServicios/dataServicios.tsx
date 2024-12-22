@@ -27,7 +27,7 @@ export const DataServicios = ({ count }: { count: number }) => {
             {countdataServices.map((ele, i) => (
                 <div
                     key={i}
-                    className="group flex flex-col justify-between bg-gradient-to-b from-gray-900 to-gray-950 w-full h-full text-white p-5 rounded-lg shadow-lg hover:shadow-xl transition-transform duration-300 hover:scale-105"
+                    className="group flex flex-col justify-between bg-bgsecond  w-full h-full text-textprin p-5 rounded-lg shadow-lg hover:shadow-xl transition-transform duration-300 hover:scale-105"
                 >
                     <div className="w-full h-[200px] sm:h-[250px] lg:h-[300px] overflow-hidden rounded-md mb-4">
                         <img
@@ -37,10 +37,10 @@ export const DataServicios = ({ count }: { count: number }) => {
                         />
                     </div>
                     <div className="text-center">
-                        <h2 className="text-lg font-bold mb-2 uppercase font-mono group-hover:text-orange-500 transition-colors duration-300">
+                        <h2 className="text-lg font-bold mb-2 uppercase font-mono group-hover:text-texthover transition-colors duration-300">
                             {ele.titulo}
                         </h2>
-                        <p className="text-gray-400 text-sm capitalize font-mono leading-relaxed">
+                        <p className="text-textprin text-sm capitalize font-mono leading-relaxed">
                             {ele.descripcion}
                         </p>
                     </div>

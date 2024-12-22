@@ -2,7 +2,7 @@ import { DataCliente } from "@/components/datacliente";
 
 export const ClienteHome = () => {
     return (
-        <div className="relative text-white p-8 overflow-hidden min-h-[150vh] md:min-h-[110vh] flex items-center justify-center border-b-2 border-white">
+        <div className="relative bg-bgprin text-textsecond p-8 overflow-hidden min-h-[90vh] md:min-h-[150vh] flex items-center justify-center border-b-2 border-white">
             {/* Contenedor principal */}
             <div className="relative z-10 w-full max-w-[1250px] flex flex-col items-center gap-8">
                 {/* Título */}
@@ -17,15 +17,15 @@ export const ClienteHome = () => {
                                 y="50%"
                                 textAnchor="middle"
                                 dominantBaseline="middle"
-                                className="text-3xl md:text-4xl lg:text-5xl font-serif font-bold fill-none stroke-white stroke-2"
+                                className="text-5xl md:text-4xl lg:text-5xl font-serif font-bold fill-none stroke-black stroke-2"
                             >
                                 NUESTROS CLIENTES
                             </text>
                         </svg>
-                        <h1 className="relative font-bold text-2xl sm:text-3xl md:text-4xl lg:text-5xl text-center z-30 font-serif">
+                        <h1 className="relative font-bold text-4xl sm:text-5xl md:text-6xl lg:text-5xl text-center z-30 font-serif">
                             Nuestros Clientes/Resultados
                         </h1>
-                        <p className="relative mt-4 text-xs sm:text-sm md:text-base lg:text-lg xl:text-xl leading-snug sm:leading-relaxed md:leading-loose font-mono text-center md:text-left">
+                        <p className="relative text-black mt-4 text-sm sm:text-sm md:text-base lg:text-lg xl:text-xl leading-snug sm:leading-relaxed md:leading-loose font-mono text-center md:text-left">
                             Nos enorgullece contar con una increíble variedad de clientes que confían en nuestros servicios de cejas y pestañas. 
                             Cada uno de ellos busca realzar su belleza de forma única, y nos sentimos honrados de poder ofrecerles el mejor cuidado 
                             y atención para conseguir resultados impecables. Estos son algunos de nuestros maravillosos clientes, quienes han 

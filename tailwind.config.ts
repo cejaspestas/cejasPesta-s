@@ -10,6 +10,13 @@ export default {
   theme: {
   	extend: {
   		colors: {
+			bgprin: '#dfdfdf',  // Blanco ligeramente más oscuro      // Blanco
+			bgsecond: '#301B15',      // Marrón oscuro
+			bgtecer: '#4A322C',       // Marrón claro
+			textprin: '#ffffff',      // Blanco para el texto
+			textsecond: '#7f5f3f',    // Marrón claro para el texto
+			texthover: '#ff3322',     // Blanco al pasar el ratón
+			bghoverpara: '#3e2b1f',   // Marrón oscuro al pasar el ratón
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
   			card: {

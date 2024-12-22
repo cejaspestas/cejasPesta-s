@@ -53,7 +53,7 @@ export const Section2 = () => {
         {message && <p className="text-red-500 text-center text-lg">{message}</p>}
         
         <div className="w-full h-[75%] flex flex-col items-center justify-center rounded-lg shadow-lg border border-gray-600 overflow-auto">
-          <div className="w-full h-full grid grid-cols-[repeat(auto-fill,minmax(140px,1fr))] gap-6 overflow-auto p-4">
+          <div className="w-full h-[75%] grid grid-cols-[repeat(auto-fill,minmax(140px,1fr))] gap-6 overflow-auto p-4">
             {numeros.map((num) => {
               const isSelected = numerosEscogidos.includes(num);
               const isReserved = numerosReservados.includes(num);

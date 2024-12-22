@@ -15,6 +15,7 @@ export default function Slider() {
   const [images, setImages] = useState<Imagen[]>([]);
   const { imagenes } = useData() ?? {};
 
+  // Carga las imágenes de contexto o de alguna fuente externa
   useEffect(() => {
     if (imagenes) {
       setImages(imagenes);
@@ -22,7 +23,7 @@ export default function Slider() {
   }, [imagenes]);
 
   return (
-    <div className="w-full h-full">
+    <div className="w-full h-full relative bg-bgprin">
       <Swiper
         modules={[Navigation, Pagination, Scrollbar, A11y, Autoplay]}
         spaceBetween={0} // Sin espacio entre diapositivas
@@ -37,21 +38,28 @@ export default function Slider() {
         className="w-full h-full"
         loop={true} // Habilitar loop para que las imágenes se repitan
       >
-        {images.map((image) => (
-          <SwiperSlide key={image.id} className="flex items-center justify-center w-full h-full">
-            <div className="w-full h-full relative group">
-              <Image
-                src={image.ruta}
-                alt="Imagen"
-                fill
-                className="object-cover group-hover:scale-110 transition-all duration-500 ease-in-out"
-                sizes="(max-width: 768px) 100vw, 50vw" // Opcional para manejo responsivo
-              />
-              <div className="absolute top-0 left-0 w-full h-full bg-black opacity-30 transition-opacity duration-500 group-hover:opacity-0"></div>
-            </div>
-          </SwiperSlide>
-        ))}
+        {images.length === 0 ? (
+          <div className="w-full h-full flex justify-center items-center text-textsecond">Cargando...</div>
+        ) : (
+          images.map((image) => (
+            <SwiperSlide key={image.id} className="flex items-center justify-center w-full h-full">
+              <div className="w-full h-full relative group">
+                <Image
+                  src={image.ruta}
+                  alt={`Imagen ${image.id}`}
+                  fill
+                  className="object-cover group-hover:scale-110 transition-all duration-500 ease-in-out"
+                  sizes="(max-width: 768px) 100vw, 50vw" // Opcional para manejo responsivo
+                />
+                <div className="absolute top-0 left-0 w-full h-full bg-black opacity-30 transition-opacity duration-500 group-hover:opacity-0"></div>
+              </div>
+            </SwiperSlide>
+          ))
+        )}
       </Swiper>
+
+      {/* Fondo oscuro al pasar el ratón */}
+      <div className="absolute inset-0 bg-bghoverpara opacity-20"></div>
     </div>
   );
 }
