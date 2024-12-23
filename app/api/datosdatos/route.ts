@@ -11,7 +11,6 @@ export async function GET(request: Request) {
     try {
         // Obtener solo el origen (dominio base) de la solicitud
         const origin = new URL(request.url).origin;
-        console.log("Origin:", origin);
 
         // Verificar si el origen está en la lista de dominios permitidos
         if (!allowedDomains.includes(origin)) {

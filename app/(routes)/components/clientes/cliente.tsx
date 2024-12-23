@@ -2,7 +2,11 @@ import { DataCliente } from "@/components/datacliente";
 
 export const ClienteHome = () => {
     return (
+<<<<<<< HEAD
         <div className="relative bg-bgprin text-textsecond p-8 overflow-hidden min-h-[90vh] md:min-h-[150vh] flex items-center justify-center border-b-2 border-white">
+=======
+        <div className="relative text-white p-8 overflow-hidden min-h-[110vh] md:min-h-[150vh] flex items-center justify-center border-b-2 border-white">
+>>>>>>> f986f88b4c18be31f7fead575e72459d9e943018
             {/* Contenedor principal */}
             <div className="relative z-10 w-full max-w-[1250px] flex flex-col items-center gap-8">
                 {/* Título */}
