@@ -48,7 +48,7 @@ export default function Contacto() {
             });
         } catch (error) {
             setError(true);
-            setMessage("Error al enviar el formulario");
+            setMessage( error ? "Error al enviar el formulario" : "");
         }
     };
 
