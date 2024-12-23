@@ -3,7 +3,7 @@ import Link from "next/link";
 
 export const ServiciosHome = () => {
     return (
-        <div className="relative bg-bgprin overflow-hidden min-h-[120vh] md:h-[120vh] lg:min-h-screen flex items-center justify-center border-b-2 border-bgsecond">
+        <div className="relative bg-bgprin overflow-hidden min-h-[135vh] md:h-[130vh] lg:min-h-screen flex items-center justify-center border-b-2 border-bgsecond">
             <div className="w-[90%] md:w-[85%] lg:w-[80%] h-full flex flex-col justify-center items-center">
                 <div className="relative w-full h-[30%] md:h-[25%] lg:h-[20%] flex items-center justify-between flex-col md:flex-row">
                     

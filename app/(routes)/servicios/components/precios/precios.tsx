@@ -20,11 +20,11 @@ export const PreciosHome = () => {
   }
 
   return (
-    <div className="relative bg-bgprin border-t-2 text-textsecond n p-8 overflow-hidden h-auto md:h-[85vh] flex items-center justify-center border-b-2 border-textprin">
+    <div className="relative bg-bgprin border-t-2 text-textsecond p-8 overflow-hidden h-auto md:h-[100vh] flex items-center justify-center border-b-2 border-textprin">
       {/* Contenedor principal */}
-      <div className="relative z-10 w-full max-w-6xl h-auto md:h-[85%]">
+      <div className="relative z-10 w-full max-w-6xl h-full flex flex-col">
         {/* Contenedor del título */}
-        <div className="relative z-10 pl-3 flex flex-col md:flex-row justify-center gap-y-5 md:justify-between items-center w-full h-auto md:h-[20%] mb-8">
+        <div className="relative z-10 pl-3 flex flex-col md:flex-row justify-center gap-y-5 md:justify-between items-center w-full mb-8">
           <div className="relative text-center md:text-left">
             <span className="text-texthover font-bold text-sm block mb-2">02.</span>
             <svg
@@ -47,10 +47,10 @@ export const PreciosHome = () => {
           </div>
         </div>
 
-        {/* Contenedor de precios */}
-        <div className="relative z-10 p-5 w-full h-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {/* Contenedor de precios con scroll */}
+        <div className="relative z-10 p-5 w-full h-full overflow-y-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {dataPrecios &&
-            dataPrecios.slice(0, 3).map((precio) => (
+            dataPrecios.map((precio) => (
               <div
                 key={precio.id}
                 className="hover:bg-texthover hover:scale-105 transition-all bg-bgsecond rounded-md shadow-lg flex flex-col items-center justify-center p-6 h-full hover:shadow-xl"
