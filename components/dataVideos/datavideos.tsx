@@ -41,6 +41,7 @@ export const Datavideos = ({ count }: { count: number }) => {
                 countdataVideo.map((ele, i) => (
                     <div
                         key={i}
+                        onClick={() => window.open(ele.videoRuta, "_blank")}
                         className="group bg-bgtecer  p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
                     >
                         {ele.videoRuta ? (
