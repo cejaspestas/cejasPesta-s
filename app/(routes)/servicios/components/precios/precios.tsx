@@ -53,7 +53,7 @@ export const PreciosHome = () => {
             dataPrecios.slice(0, 3).map((precio) => (
               <div
                 key={precio.id}
-                className="hover:bg-texthover hover:scale-105 transition-all bg-bgprin rounded-md shadow-lg flex flex-col items-center justify-center p-6 h-full hover:shadow-xl"
+                className="hover:bg-texthover hover:scale-105 transition-all bg-bgsecond rounded-md shadow-lg flex flex-col items-center justify-center p-6 h-full hover:shadow-xl"
               >
                 <h2 className="text-xl font-bold font-mono mb-2 text-center text-textprin">{precio.tipoServicio}</h2>
                 <h3 className="text-lg font-mono font-bold mb-1 text-center text-textprin">
