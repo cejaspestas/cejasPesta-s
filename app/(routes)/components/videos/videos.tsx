@@ -26,7 +26,7 @@ export const VideosHome = () => {
                     </div>
                 </div>
                 <div className="w-full h-[80%] overflow-auto dark-scrollbar">
-                    <Datavideos count={5} />
+                    <Datavideos count={-1} />
                 </div>
 
             </div>
