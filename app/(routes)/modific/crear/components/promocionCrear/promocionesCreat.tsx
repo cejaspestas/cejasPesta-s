@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 
 export const PromocionCrear = () => {
     const [promocion, setPromocion] = useState({
@@ -10,7 +10,7 @@ export const PromocionCrear = () => {
     const [message, setMessage] = useState<string>('');
     const [files, setFiles] = useState<File | null>(null);
     const [imagenes, setImagenes] = useState<string[]>([]);
-
+    console.log(imagenes ? "d" : "");
     const onChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const { name, value } = e.target;
     
@@ -78,7 +78,7 @@ export const PromocionCrear = () => {
                 setMessage(promocionResponseData.error || 'Error al crear la promoción.');
             }
         } catch (error) {
-            setMessage('Error al conectar con el servidor.');
+            setMessage( error ? 'Error al conectar con el servidor.': "");
         }
     };
 

@@ -1,7 +1,6 @@
 "use client";
 import { useState } from "react";
 import { DataServicios } from "@/components/dataServicios";
-import { PreciosHome } from "./components/precios";
 import { PromocionesHome } from "./components/promociones/promociones";
 import { TeamDisplay } from "./components/personal/personal";
 

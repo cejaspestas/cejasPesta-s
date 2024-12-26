@@ -3,7 +3,7 @@ import { Cliente, Contacto, Equipo, Imagen, Precio, Promocion, Servicio, Video }
 import { useEffect, useState } from "react";
 import {useRouter } from "next/navigation";
 import { useData } from "@/context/fetchdatos";
-import { headers } from "next/headers";
+
 
 export default function MostrarEditar() { 
     const [videos, setVideos] = useState<Video[]>([]);
@@ -18,7 +18,6 @@ export default function MostrarEditar() {
     const router = useRouter();
 
     useEffect(() => {
-        console.log(c, i, s, v, cl, p, pr, e);  // Verificar los datos antes de asignarlos
       
         if (c && i && s && v && cl && p && pr && e) {
           setContactos(c);
