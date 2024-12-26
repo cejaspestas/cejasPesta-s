@@ -30,17 +30,18 @@ export function Header() {
             } items-center px-4 md:px-6 justify-between w-full transition-all ease-in-out h-[14vh] z-[300] ${
                 scrollPosition
                     ? "bg-gradient-to-b from-bgsecond to-bgtecer"
-                    : "bg-transparent"
-            }`}
+                    :  `${pathname === "/sobre-nosotros" ? "md:bg-transparent bg-bgsecond" : "bg-transparent"}` 
+            }`
+            }
         >
             <div className="flex items-center">
                 <Link href="/">
                     <Image
                         src="/logo1.png"
                         alt="logo"
-                        width={150} // Ajusta este valor según el tamaño necesario
-                        height={150} // Ajusta este valor según el tamaño necesario
-                        className="object-contain w-20 h-20 md:h-20" // Aumenté el tamaño para pantallas pequeñas y grandes
+                        width={200} // Ajusta este valor según el tamaño necesario
+                        height={200} // Ajusta este valor según el tamaño necesario
+                        className="object-cover w-[8vh] h-[8vh] md:h-16 md:w-16" // Aumenté el tamaño para pantallas pequeñas y grandes
                     />
                 </Link>
             </div>

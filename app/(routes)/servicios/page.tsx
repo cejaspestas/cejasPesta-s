@@ -34,12 +34,9 @@ export default function Servicios() {
           </button>
         </div>
       </div>
-
-      <PreciosHome />
-
-      <div className="w-full min-h-[100vh] lg:min-h-[80vh] bg-bgtecer flex justify-center items-center flex-col gap-y-[5vh]">
+      <div className="w-full min-h-[100vh] lg:min-h-[180vh] bg-bgprin flex justify-center items-center flex-col gap-y-[5vh]">
         <div className="w-[85%]">
-          <h1 className="text-textprin text-3xl md:text-4xl text-center pt-5 font-bold font-serif">
+          <h1 className="text-textsecond text-3xl md:text-4xl text-center pt-5 font-bold font-serif">
             Promociones
           </h1>
         </div>

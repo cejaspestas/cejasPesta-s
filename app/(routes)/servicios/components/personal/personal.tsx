@@ -22,8 +22,8 @@ export const TeamDisplay = () => {
   }
 
   return (
-    <div className="bg-bgprin p-6 min-h-[80vh] border-t-2 flex justify-center items-center flex-col gap-y-20">
-      <h2 className="text-textsecond text-4xl font-bold text-center mb-6 font-serif">Nuestro Equipo</h2>
+    <div className="bg-bgsecond border-4 border-black p-6 min-h-[65vh] flex justify-center items-center flex-col gap-y-20">
+      <h2 className="text-textprin text-4xl font-bold text-center mb-6 font-serif">Nuestro Equipo</h2>
       <div className="w-[90%] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {dataEquipo &&
           dataEquipo.map((member, index) => (

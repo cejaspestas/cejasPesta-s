@@ -1,5 +1,6 @@
-"use client"
-import { useState } from "react";
+"use client";
+
+import { useState, useEffect } from "react";
 
 export const PromocionCrear = () => {
     const [promocion, setPromocion] = useState({
@@ -7,56 +8,88 @@ export const PromocionCrear = () => {
         descripcion: '',
     });
     const [message, setMessage] = useState<string>('');
+    const [files, setFiles] = useState<File | null>(null);
+    const [imagenes, setImagenes] = useState<string[]>([]);
 
     const onChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-        if (e.target.name === "tipoServicio" || e.target.name === "descripcion") {
-            setPromocion({ ...promocion, [e.target.name]: e.target.value });
+        const { name, value } = e.target;
+    
+        if (name === "tipoServicio" || name === "descripcion") {
+            setPromocion({ ...promocion, [name]: value });
         }
-    }
+    
+        if (name === "imagen" && e.target instanceof HTMLInputElement && e.target.files) {
+            setFiles(e.target.files[0]); // Guardar el primer archivo seleccionado
+        }
+    };
+    
 
     const onSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
 
-        // Verificar si los campos requeridos están completos
-        if (!promocion.tipoServicio || !promocion.descripcion) {
-            setMessage('Por favor completa todos los campos.');
+        // Validar que todos los campos estén completos
+        if (!promocion.tipoServicio || !promocion.descripcion || !files) {
+            setMessage('Por favor completa todos los campos y selecciona una imagen.');
             return;
         }
 
+        // Subir imagen
         try {
-            const formDataPromocion = { 
+            const formData = new FormData();
+            formData.append('file', files);
+
+            const imageResponse = await fetch('/api/upload', {
+                method: 'POST',
+                body: formData,
+            });
+
+            const imageData = await imageResponse.json();
+
+            if (!imageResponse.ok) {
+                setMessage(imageData.error || 'Error al subir la imagen.');
+                return;
+            }
+
+            const { rutas } = imageData;
+            setImagenes(rutas);
+
+            // Enviar datos de la promoción
+            const promocionData = {
                 tipoServicio: promocion.tipoServicio,
                 descripcion: promocion.descripcion,
+                imagenes: rutas, // Agregar las rutas de las imágenes subidas
             };
 
-            const response = await fetch('/api/modifapi/promocion', {
+            const promocionResponse = await fetch('/api/modifapi/promocion', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                 },
-                body: JSON.stringify(formDataPromocion),
+                body: JSON.stringify(promocionData),
             });
 
-            const data = await response.json();
+            const promocionResponseData = await promocionResponse.json();
 
-            if (response.ok) {
+            if (promocionResponse.ok) {
                 setMessage('Promoción creada exitosamente.');
                 setPromocion({ tipoServicio: '', descripcion: '' });
+                setFiles(null);
             } else {
-                setMessage(data.error || 'Error al crear la promoción.');
+                setMessage(promocionResponseData.error || 'Error al crear la promoción.');
             }
-
         } catch (error) {
-            setMessage( error ?'Error al conectar con el servidor.' : "");
+            setMessage('Error al conectar con el servidor.');
         }
-    }
+    };
 
     return (
-        <div className="bg-gray-900 text-white p-6 rounded-lg shadow-lg ">
+        <div className="bg-gray-900 text-white p-6 rounded-lg shadow-lg">
             <h2 className="text-2xl font-bold mb-6 text-center">Crear Promoción</h2>
             <form onSubmit={onSubmit} className="space-y-4">
                 <div>
-                    <label htmlFor="tipoServicio" className="block text-sm font-medium mb-1">Tipo de Servicio</label>
+                    <label htmlFor="tipoServicio" className="block text-sm font-medium mb-1">
+                        Tipo de Servicio
+                    </label>
                     <input
                         type="text"
                         name="tipoServicio"
@@ -66,9 +99,10 @@ export const PromocionCrear = () => {
                         className="w-full p-2 bg-gray-800 border border-gray-700 rounded focus:outline-none focus:ring focus:ring-blue-500"
                     />
                 </div>
-
                 <div>
-                    <label htmlFor="descripcion" className="block text-sm font-medium mb-1">Descripción de la Promoción & precio de la promocion y/o porcentaje de descuento </label>
+                    <label htmlFor="descripcion" className="block text-sm font-medium mb-1">
+                        Descripción de la Promoción & precio de la promoción y/o porcentaje de descuento
+                    </label>
                     <textarea
                         name="descripcion"
                         value={promocion.descripcion}
@@ -77,7 +111,18 @@ export const PromocionCrear = () => {
                         className="w-full p-2 bg-gray-800 border border-gray-700 rounded focus:outline-none focus:ring focus:ring-blue-500"
                     ></textarea>
                 </div>
-
+                <div>
+                    <label htmlFor="imagen" className="block text-sm font-medium mb-1">
+                        Imagen de la Promoción
+                    </label>
+                    <input
+                        type="file"
+                        name="imagen"
+                        onChange={onChange}
+                        required
+                        className="block w-full text-sm text-gray-400 file:mr-4 file:py-2 file:px-4 file:rounded file:border-0 file:bg-blue-600 file:text-white hover:file:bg-blue-700"
+                    />
+                </div>
                 <button
                     type="submit"
                     className="w-full py-2 px-4 bg-blue-600 rounded text-white font-medium hover:bg-blue-700 focus:outline-none focus:ring focus:ring-blue-500"
@@ -85,9 +130,7 @@ export const PromocionCrear = () => {
                     Crear Promoción
                 </button>
             </form>
-
-        {message && <p className="text-center text-green-500 mt-4">{message}</p>}
+            {message && <p className="text-center text-green-500 mt-4">{message}</p>}
         </div>
-
-    )
-}
+    );
+};

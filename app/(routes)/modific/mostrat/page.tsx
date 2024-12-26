@@ -3,6 +3,7 @@ import { Cliente, Contacto, Equipo, Imagen, Precio, Promocion, Servicio, Video }
 import { useEffect, useState } from "react";
 import {useRouter } from "next/navigation";
 import { useData } from "@/context/fetchdatos";
+import { headers } from "next/headers";
 
 export default function MostrarEditar() { 
     const [videos, setVideos] = useState<Video[]>([]);
@@ -140,8 +141,10 @@ export default function MostrarEditar() {
         try {
             
             const response = await fetch(`/api/contacto/${id}`, {
-
-                method: "DELETE"
+                method: "DELETE",
+                headers: {
+                    "Content-Type": "application/json"
+                }
             });
 
             if (!response.ok) {
@@ -298,6 +301,7 @@ export default function MostrarEditar() {
                     <thead>
                         <tr>
                             <th className="border border-gray-300 px-4 py-2">ID</th>
+                            <th className="border border-gray-300 px-4 py-2">Imagen</th>
                             <th className="border border-gray-300 px-4 py-2">Tipo Servicio</th>
                             <th className="border border-gray-300 px-4 py-2">Descripción</th>
                             <th className="border border-gray-300 px-4 py-2">Eliminar</th>
@@ -309,6 +313,7 @@ export default function MostrarEditar() {
                             promociones && promociones.map((promocion: Promocion) => (
                                 <tr key={promocion.id}>
                                     <td className="border border-gray-300 px-4 py-2">{promocion.id}</td>
+                                    <td className="border border-gray-300 px-4 py-2">{promocion.imagen}</td>
                                     <td className="border border-gray-300 px-4 py-2">{promocion.tipoServicio}</td>
                                     <td className="border border-gray-300 px-4 py-2">{promocion.descripcion}</td>
                                     <td className="hover:bg-red-950 border border-gray-300 px-4 py-2"><button onClick={() => EliminarPromocion(promocion.id)}>Eliminar</button></td>

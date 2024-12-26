@@ -9,7 +9,7 @@ export async function POST(request: Request) {
             return NextResponse.json({ error: 'No se han recibido datos' }, { status: 500 });
         }
 
-        const { tipoServicio, descripcion} = data;
+        const { tipoServicio, descripcion, imagenes } = data;
 
         if (!tipoServicio || !descripcion ) {
             return NextResponse.json({ error: 'Todos los campos son obligatorios' }, { status: 400 });
@@ -17,6 +17,7 @@ export async function POST(request: Request) {
 
         const promocion = await db.promocion.create({
             data: {
+                imagen: imagenes[0],
                 tipoServicio: tipoServicio,
                 descripcion: descripcion,
             }

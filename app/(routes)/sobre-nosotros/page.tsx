@@ -8,7 +8,7 @@ export default function SobreNosotros() {
     };
 
     return (
-        <div className="min-h-[130vh] lg:min-h-[110vh] bg-bgprin flex items-center justify-center">
+        <div className="min-h-[170vh] lg:min-h-[130vh] bg-bgprin flex items-center justify-center">
             <div className="flex flex-col items-center justify-center h-full p-8 gap-y-10">
                 {/* Título */}
                 <h1 className="text-5xl font-bold text-textsecond tracking-wide mb-6 text-center md:text-4xl sm:text-3xl font-serif">
@@ -16,12 +16,12 @@ export default function SobreNosotros() {
                 </h1>
 
                 {/* Imagen del logo */}
-                <div className="relative w-full h-[40vh] flex items-center justify-center">
+                <div className="relative w-[30vh] h-[30vh] rounded-full boder-2 border-bgsecond flex items-center justify-center">
                     <div className="relative w-full h-full">
                         <Image
                             src="/logo1.png"
                             alt="Logo"
-                            className="object-cover"
+                            className="w-full h-full absolute"
                             fill
                             priority
                         />
