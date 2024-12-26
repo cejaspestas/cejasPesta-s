@@ -3,7 +3,7 @@ import { Datavideos } from "@/components/dataVideos/datavideos";
 export const VideosHome = () => {
     return (
         <div className="relative  bg-bgsecond overflow-hidden h-[120vh] md:h-[150vh] lg:h-[100vh] flex items-center justify-center border-2 border-black">
-            <div className="w-[80%] h-[80%] flex flex-col justify-between gap-y-5">
+            <div className="w-[90%] h-[90%] flex flex-col justify-between gap-y-5">
                 {/* Cabecera */}
                 <div className="relative w-full h-[20%] flex items-center justify-center">
                     <div className="relative w-[60%] h-full flex flex-col items-center justify-center">

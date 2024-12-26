@@ -36,7 +36,7 @@ export const Datavideos = ({ count }: { count: number }) => {
     const countdataVideo = dataVideo.slice(0, count);
 
     return (
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-4 md:p-6 lg:p-8">
+        <div className="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 p-4 md:p-6 lg:p-8">
             {countdataVideo.length > 0 ? (
                 countdataVideo.map((ele, i) => (
                     <div

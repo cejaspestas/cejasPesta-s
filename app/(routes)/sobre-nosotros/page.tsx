@@ -16,14 +16,19 @@ export default function SobreNosotros() {
                 </h1>
 
                 {/* Imagen del logo */}
-                <div className="relative w-[25vh] h-[25vh] rounded-full overflow-hidden shadow-2xl border-4 border-bgsecond md:w-[20vh] md:h-[20vh] sm:w-[15vh] sm:h-[15vh]">
-                    <Image
-                        src="/logo1.png"
-                        alt="Logo"
-                        fill
-                        style={{ objectFit: "cover" }}
-                    />
+                <div className="relative w-full h-[40vh] flex items-center justify-center">
+                    <div className="relative w-full h-full">
+                        <Image
+                            src="/logo1.png"
+                            alt="Logo"
+                            className="object-cover"
+                            fill
+                            priority
+                        />
+                    </div>
                 </div>
+
+
 
                 {/* Descripción */}
                 <p className="text-lg text-center max-w-3xl text-textsecond leading-relaxed md:text-base md:max-w-xl sm:text-sm sm:max-w-md font-mono">

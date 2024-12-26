@@ -3,9 +3,9 @@ import Link from "next/link";
 
 export const ServiciosHome = () => {
     return (
-        <div className="relative bg-bgprin overflow-hidden min-h-[135vh] md:h-[130vh] lg:min-h-screen flex items-center justify-center border-b-2 border-bgsecond">
-            <div className="w-[90%] md:w-[85%] lg:w-[80%] h-full flex flex-col justify-center items-center">
-                <div className="relative w-full h-[30%] md:h-[25%] lg:h-[20%] flex items-center justify-between flex-col md:flex-row">
+        <div className="relative bg-bgprin overflow-hidden min-h-[250vh] sm:min-h-[220vh]  md:min-h-[180vh] lg:min-h-[150vh] flex items-center justify-center border-b-2 border-bgsecond">
+            <div className="w-[90%] md:w-[90%] lg:w-[90%] h-full flex flex-col justify-center items-center">
+                <div className="relative w-full h-[35%] md:h-[30%] lg:h-[25%] flex items-center justify-between flex-col md:flex-row">
                     
                     <div className="relative h-full flex flex-col items-center justify-center">
                         <svg
@@ -37,7 +37,7 @@ export const ServiciosHome = () => {
                     </div>
                 </div>
 
-                <div className="w-full h-[70%] md:h-[75%] lg:h-[80%] overflow-auto lg:overflow-hidden">
+                <div className="w-full h-[65%] md:h-[70%] lg:h-[75%] overflow-auto lg:overflow-hidden">
                     <DataServicios count={3} />
                 </div>
             </div>
