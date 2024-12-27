@@ -42,10 +42,10 @@ export const PromocionesHome = () => {
               className="w-full h-1/1 object-scale-down mb-4 rounded-lg"
             />
           )}
-          <h2 className="text-2xl text-textprin capitalize font-mono mb-4 text-center">
+          <h2 className=" text-lg sm:text-xl lg:text-2xl text-textprin capitalize font-mono mb-4 text-center">
             {promo.tipoServicio}
           </h2>
-          <p className="text-2xl font-bold text-textprin text-center font-mono leading-relaxed">
+          <p className="text-lg sm:text-xl lg:text-2xl font-bold text-textprin text-center font-mono leading-relaxed">
             {promo.descripcion}
           </p>
         </div>
