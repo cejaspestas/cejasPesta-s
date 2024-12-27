@@ -3,13 +3,21 @@ import { useData } from "@/context/fetchdatos";
 import { Video } from "@prisma/client";
 import { useEffect, useState } from "react";
 
-// Función para transformar URLs a formato embed
+// Función para transformar URLs a formato embed, incluyendo Shorts de YouTube
 const transformUrlToEmbed = (url: string): string => {
     // Verificar si la URL es de YouTube
-    if (url.includes("youtube.com") || url.includes("youtu.be")) {
-        const videoId = url.includes("youtube.com")
-            ? url.split("v=")[1]?.split("&")[0]
-            : url.split("youtu.be/")[1]?.split("?")[0];
+    if (url.includes("youtube.com") || url.includes("youtu.be") || url.includes("shorts")) {
+        let videoId;
+        if (url.includes("youtube.com")) {
+            if (url.includes("/shorts/")) {
+                videoId = url.split("/shorts/")[1]?.split("?")[0];
+            } else {
+                videoId = url.split("v=")[1]?.split("&")[0];
+            }
+        } else if (url.includes("youtu.be")) {
+            videoId = url.split("youtu.be/")[1]?.split("?")[0];
+        }
+
         return videoId ? `https://www.youtube.com/embed/${videoId}` : "";
     }
 
@@ -19,7 +27,7 @@ const transformUrlToEmbed = (url: string): string => {
         return `https://www.facebook.com/plugins/video.php?href=${encodedUrl}&show_text=false`;
     }
 
-    // Si no coincide con YouTube o Facebook
+    // Si no coincide con YouTube, Shorts o Facebook
     return "";
 };
 
@@ -42,7 +50,7 @@ export const Datavideos = ({ count }: { count: number }) => {
                     <div
                         key={i}
                         onClick={() => window.open(ele.videoRuta, "_blank")}
-                        className="group bg-bgtecer  p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
+                        className="group bg-bgtecer p-6 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300"
                     >
                         {ele.videoRuta ? (
                             <div className="relative w-full overflow-hidden rounded-md" style={{ paddingTop: "56.25%" }}>
@@ -61,7 +69,7 @@ export const Datavideos = ({ count }: { count: number }) => {
                             </p>
                         )}
                         <div className="mt-4">
-                            <h2 className="text-lg  text-textprin font-bold font-mono mb-2 group-hover:text-texthover transition-colors duration-300">
+                            <h2 className="text-lg text-textprin font-bold font-mono mb-2 group-hover:text-texthover transition-colors duration-300">
                                 {ele.titulo || "Sin título"}
                             </h2>
                             <p className="text-textprin text-sm mb-4 font-mono">
